@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!homework5_v3_restored/fetch.v
+!homework5_v3_restored/decode.v
+!homework5_v3_restored/execute.v
+!homework5_v3_restored/writeback.v
