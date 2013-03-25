@@ -176,6 +176,9 @@ begin
     /////////////////////////////////////////////
     // TODO: Complete here 
     /////////////////////////////////////////////
+	 if (I_WriteBackEnable) begin
+		RF[I_WriteBackRegIdx] <= I_WriteBackData;
+	 end
   end // if (I_LOCK == 1'b1)
 end // always @(posedge I_CLOCK)
 

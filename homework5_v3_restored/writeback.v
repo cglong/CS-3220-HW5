@@ -61,7 +61,7 @@ assign O_WriteBackRegIdx =
        /////////////////////////////////////////////
        // TODO: Complete other instructions
        /////////////////////////////////////////////
-       (I_Opcode == `OP_LDB   ) ? (I_DestRegIdx) : 
+       (I_Opcode == `OP_LDW   ) ? (I_DestRegIdx) : 
        (4'h0)
       ) : (1'b0)
     ) : (1'b0);
@@ -75,7 +75,11 @@ assign O_WriteBackData =
        /////////////////////////////////////////////
        // TODO: Complete other instructions
        /////////////////////////////////////////////
-       (I_Opcode == `OP_LDB   ) ? (I_MemOut) : 
+       (I_Opcode == `OP_ADDI.D) ? (I_ALUOut) :
+		 (I_Opcode == `OP_AND.D ) ? (I_ALUOut) :
+		 (I_Opcode == `OP_ANDI.D) ? (I_ALUOut) :
+		 (I_Opcode == `OP_MOV   ) ? (I_ALUOut) :
+		 (I_Opcode == `OP_LDW   ) ? (I_MemOut) :
        (16'h0000)
       ) : (1'b0)
     ) : (1'b0);
