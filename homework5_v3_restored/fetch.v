@@ -89,18 +89,23 @@ begin
 	 if (I_BranchAddrSelect) begin
 		PC <= I_BranchPC;
 		O_PC <= PC + 16'h4;
+		O_IR <= InstMem[PC[`PC_WIDTH-1:2]]; 
 	 end
+	 
 	 else if (I_BranchStallSignal || I_DepStallSignal) begin
 		PC <= PC;
 		O_PC <= PC + 16'h4;
 		O_FetchStall <= 1;
+		O_IR <= InstMem[PC[`PC_WIDTH-1:2]]; 
 	 end
+	 
 	 else begin
 		PC <= O_PC;
 		O_PC <= PC + 16'h4;
+		O_IR <= InstMem[PC[`PC_WIDTH-1:2]]; 
 	 end
 		
-	 O_IR <= InstMem[PC[`PC_WIDTH-1:2]]; 
+
   end // if (I_LOCK == 0)
 end // always @(negedge I_CLOCK)
 

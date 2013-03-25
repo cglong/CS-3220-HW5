@@ -120,23 +120,22 @@ assign __DepStallSignal =
      // TODO: Complete other instructions
      /////////////////////////////////////////////
 	  
-	  //Lee -- not completely sure if these are all valid
 	  (I_IR[31:24] == `OP_BRZ       ) ? (ConditionalCode != 3'b010) : 
 	  (I_IR[31:24] == `OP_BRP       ) ? (ConditionalCode != 3'b001) : 
 	  (I_IR[31:24] == `OP_BRNZ      ) ? (ConditionalCode != 3'b110) : 
 	  (I_IR[31:24] == `OP_BRNP      ) ? (ConditionalCode != 3'b101) : 
 	  (I_IR[31:24] == `OP_BRZP      ) ? (ConditionalCode != 3'b011) : 
 	  (I_IR[31:24] == `OP_BRNZP     ) ? (ConditionalCode != 3'b111) :
-	  (I_IR[31:24] == `OP_ADD_D     ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
-	  (I_IR[31:24] == `OP_AND_D     ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
+	  (I_IR[31:24] == `OP_ADD_D     ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16] || I_WriteBackRegIdx == I_IR[11:8]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
+	  (I_IR[31:24] == `OP_ADD_D     ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16] || I_WriteBackRegIdx == I_IR[11:8]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
 	  (I_IR[31:24] == `OP_ANDI_D    ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) : 
-	  (I_IR[31:24] == `OP_MOV       ) ? (1'b0) :
+	  (I_IR[31:24] == `OP_MOV       ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) : 
 	  (I_IR[31:24] == `OP_LDW       ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
-	  (I_IR[31:24] == `OP_STW       ) ? (1'b0) :
+	  (I_IR[31:24] == `OP_STW       ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
 	  (I_IR[31:24] == `OP_JSR       ) ? (1'b0) :
-	  (I_IR[31:24] == `OP_JSRR      ) ? (1'b0) :
-	  (I_IR[31:24] == `OP_RET       ) ? (1'b0) :
-	  (I_IR[31:24] == `OP_JMP       ) ? (1'b0) :
+	  (I_IR[31:24] == `OP_JSRR      ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
+	  (I_IR[31:24] == `OP_RET       ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
+	  (I_IR[31:24] == `OP_JMP       ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
      (1'b0)
     ) : (1'b0);
 
@@ -178,6 +177,7 @@ begin
     /////////////////////////////////////////////
 	 if (I_WriteBackEnable) begin
 		RF[I_WriteBackRegIdx] <= I_WriteBackData;
+		//FIXME -- O_Opcode == ????
 	 end
   end // if (I_LOCK == 1'b1)
 end // always @(posedge I_CLOCK)
@@ -198,6 +198,11 @@ begin
     /////////////////////////////////////////////
     // TODO: Complete here 
     /////////////////////////////////////////////
+	 O_Src1Value <= IR[19:16];
+	 O_Src2Value <= IR[11:8];
+	 O_DestRegIdx <= IR[23:20];
+	 O_DestValue <= RF[O_DestRegIdx];
+	 //FIXME -- update valid bit????
   end // if (I_LOCK == 1'b1)
 end // always @(negedge I_CLOCK)
 
