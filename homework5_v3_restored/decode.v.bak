@@ -119,24 +119,6 @@ assign __DepStallSignal =
      /////////////////////////////////////////////
      // TODO: Complete other instructions
      /////////////////////////////////////////////
-	  
-	  //Lee -- not completely sure if these are all valid
-	  (I_IR[31:24] == `OP_BRZ       ) ? (ConditionalCode != 3'b010) : 
-	  (I_IR[31:24] == `OP_BRP       ) ? (ConditionalCode != 3'b001) : 
-	  (I_IR[31:24] == `OP_BRNZ      ) ? (ConditionalCode != 3'b110) : 
-	  (I_IR[31:24] == `OP_BRNP      ) ? (ConditionalCode != 3'b101) : 
-	  (I_IR[31:24] == `OP_BRZP      ) ? (ConditionalCode != 3'b011) : 
-	  (I_IR[31:24] == `OP_BRNZP     ) ? (ConditionalCode != 3'b111) :
-	  (I_IR[31:24] == `OP_ADD_D     ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
-	  (I_IR[31:24] == `OP_AND_D     ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
-	  (I_IR[31:24] == `OP_ANDI_D    ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) : 
-	  (I_IR[31:24] == `OP_MOV       ) ? (1'b0) :
-	  (I_IR[31:24] == `OP_LDW       ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
-	  (I_IR[31:24] == `OP_STW       ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
-	  (I_IR[31:24] == `OP_JSR       ) ? (1'b0) :
-	  (I_IR[31:24] == `OP_JSRR      ) ? (1'b0) :
-	  (I_IR[31:24] == `OP_RET       ) ? (1'b0) :
-	  (I_IR[31:24] == `OP_JMP       ) ? (1'b0) :
      (1'b0)
     ) : (1'b0);
 

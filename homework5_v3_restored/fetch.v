@@ -93,6 +93,7 @@ begin
 	 else if (I_BranchStallSignal || I_DepStallSignal) begin
 		PC <= PC;
 		O_PC <= PC + 16'h4;
+		O_FetchStall <= 1;
 	 end
 	 else begin
 		PC <= O_PC;

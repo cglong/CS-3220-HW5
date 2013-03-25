@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lg_highlevel
-Mon Mar 25 10:23:24 2013
+Mon Mar 25 11:36:45 2013
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
@@ -48,7 +48,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Mar 25 10:23:24 2013    ;
+; Analysis & Synthesis Status        ; Successful - Mon Mar 25 11:36:44 2013    ;
 ; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
 ; Revision Name                      ; lg_highlevel                             ;
 ; Top-level Entity Name              ; lg_highlevel                             ;
@@ -236,47 +236,57 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+------------------------+-----------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; Decode:Decode0|O_FetchStall            ; Stuck at GND due to stuck port data_in ;
-; Execute:Execute0|O_FetchStall          ; Lost fanout                            ;
-; Memory:Memory0|LedROut[0..9]           ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|LedGOut[0..7]           ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[0]               ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[1]               ; Stuck at GND due to stuck port data_in ;
-; Memory:Memory0|HexOut[2,3]             ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[4]               ; Stuck at GND due to stuck port data_in ;
-; Memory:Memory0|HexOut[5]               ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[6]               ; Stuck at GND due to stuck port data_in ;
-; Memory:Memory0|HexOut[7]               ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[8]               ; Stuck at GND due to stuck port data_in ;
-; Memory:Memory0|HexOut[9..12]           ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[13]              ; Stuck at GND due to stuck port data_in ;
-; Memory:Memory0|HexOut[14,15]           ; Stuck at VCC due to stuck port data_in ;
-; Execute:Execute0|O_LOCK                ; Lost fanout                            ;
-; Decode:Decode0|O_LOCK                  ; Lost fanout                            ;
-; Fetch:Fetch0|O_LOCK                    ; Lost fanout                            ;
-; counter[0..2]                          ; Lost fanout                            ;
-; clk                                    ; Lost fanout                            ;
-; counter[3..31]                         ; Lost fanout                            ;
-; Total Number of Removed Registers = 72 ;                                        ;
-+----------------------------------------+----------------------------------------+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; Memory:Memory0|O_BranchAddrSelect       ; Stuck at GND due to stuck port data_in ;
+; Memory:Memory0|O_FetchStall             ; Lost fanout                            ;
+; Memory:Memory0|O_LOCK                   ; Lost fanout                            ;
+; Execute:Execute0|O_FetchStall           ; Lost fanout                            ;
+; Decode:Decode0|O_FetchStall             ; Lost fanout                            ;
+; Fetch:Fetch0|O_FetchStall               ; Lost fanout                            ;
+; Fetch:Fetch0|O_PC[2..15]                ; Lost fanout                            ;
+; Fetch:Fetch0|O_IR[24..31]               ; Lost fanout                            ;
+; Fetch:Fetch0|PC[2..15]                  ; Lost fanout                            ;
+; Memory:Memory0|LedROut[0..9]            ; Stuck at VCC due to stuck port data_in ;
+; Memory:Memory0|LedGOut[0..7]            ; Stuck at VCC due to stuck port data_in ;
+; Memory:Memory0|HexOut[0]                ; Stuck at VCC due to stuck port data_in ;
+; Memory:Memory0|HexOut[1]                ; Stuck at GND due to stuck port data_in ;
+; Memory:Memory0|HexOut[2,3]              ; Stuck at VCC due to stuck port data_in ;
+; Memory:Memory0|HexOut[4]                ; Stuck at GND due to stuck port data_in ;
+; Memory:Memory0|HexOut[5]                ; Stuck at VCC due to stuck port data_in ;
+; Memory:Memory0|HexOut[6]                ; Stuck at GND due to stuck port data_in ;
+; Memory:Memory0|HexOut[7]                ; Stuck at VCC due to stuck port data_in ;
+; Memory:Memory0|HexOut[8]                ; Stuck at GND due to stuck port data_in ;
+; Memory:Memory0|HexOut[9..12]            ; Stuck at VCC due to stuck port data_in ;
+; Memory:Memory0|HexOut[13]               ; Stuck at GND due to stuck port data_in ;
+; Memory:Memory0|HexOut[14,15]            ; Stuck at VCC due to stuck port data_in ;
+; Execute:Execute0|O_LOCK                 ; Lost fanout                            ;
+; Decode:Decode0|O_LOCK                   ; Lost fanout                            ;
+; Fetch:Fetch0|O_LOCK                     ; Lost fanout                            ;
+; counter[0..2]                           ; Lost fanout                            ;
+; clk                                     ; Lost fanout                            ;
+; counter[3..31]                          ; Lost fanout                            ;
+; Total Number of Removed Registers = 112 ;                                        ;
++-----------------------------------------+----------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                   ;
-+-----------------------------+---------------------------+---------------------------------------------------------------------+
-; Register name               ; Reason for Removal        ; Registers Removed due to This Register                              ;
-+-----------------------------+---------------------------+---------------------------------------------------------------------+
-; counter[2]                  ; Lost Fanouts              ; counter[12], counter[15], counter[19], counter[20], counter[23]     ;
-; Memory:Memory0|LedROut[2]   ; Stuck at VCC              ; Execute:Execute0|O_LOCK, Decode:Decode0|O_LOCK, Fetch:Fetch0|O_LOCK ;
-;                             ; due to stuck port data_in ;                                                                     ;
-; Decode:Decode0|O_FetchStall ; Stuck at GND              ; clk                                                                 ;
-;                             ; due to stuck port data_in ;                                                                     ;
-+-----------------------------+---------------------------+---------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                             ;
++-----------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
+; Register name                     ; Reason for Removal        ; Registers Removed due to This Register                                                  ;
++-----------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
+; Memory:Memory0|O_BranchAddrSelect ; Stuck at GND              ; Fetch:Fetch0|O_PC[2], Fetch:Fetch0|O_PC[3], Fetch:Fetch0|O_PC[4], Fetch:Fetch0|O_PC[5], ;
+;                                   ; due to stuck port data_in ; Fetch:Fetch0|O_PC[6], Fetch:Fetch0|O_PC[7], Fetch:Fetch0|O_PC[8], Fetch:Fetch0|O_PC[9], ;
+;                                   ;                           ; Fetch:Fetch0|O_PC[10], Fetch:Fetch0|O_PC[11], Fetch:Fetch0|O_PC[12],                    ;
+;                                   ;                           ; Fetch:Fetch0|O_PC[13], Fetch:Fetch0|O_PC[14], Fetch:Fetch0|O_PC[15],                    ;
+;                                   ;                           ; Execute:Execute0|O_LOCK, Decode:Decode0|O_LOCK, Fetch:Fetch0|O_LOCK, clk                ;
+; counter[2]                        ; Lost Fanouts              ; counter[12], counter[15], counter[19], counter[20], counter[23]                         ;
+; Memory:Memory0|O_FetchStall       ; Lost Fanouts              ; Execute:Execute0|O_FetchStall, Decode:Decode0|O_FetchStall,                             ;
+;                                   ;                           ; Fetch:Fetch0|O_FetchStall                                                               ;
++-----------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -719,7 +729,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
-    Info: Processing started: Mon Mar 25 10:23:21 2013
+    Info: Processing started: Mon Mar 25 11:36:41 2013
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lg_highlevel -c lg_highlevel
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file seven_segment.v
@@ -806,14 +816,10 @@ Warning (10850): Verilog HDL warning at fetch.v(57): number of words (3) in memo
 Warning (10030): Net "InstMem.data_a" at fetch.v(48) has no driver or initial value, using a default initial value '0'
 Warning (10030): Net "InstMem.waddr_a" at fetch.v(48) has no driver or initial value, using a default initial value '0'
 Warning (10030): Net "InstMem.we_a" at fetch.v(48) has no driver or initial value, using a default initial value '0'
-Warning (10034): Output port "O_FetchStall" at fetch.v(42) has no driver
 Info (12128): Elaborating entity "Decode" for hierarchy "Decode:Decode0"
 Warning (10036): Verilog HDL or VHDL warning at decode.v(69): object "RF" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at decode.v(70): object "VRF" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at decode.v(74): object "VRF_VALID" assigned a value but never read
-Warning (10030): Net "RF_VALID.waddr_a" at decode.v(73) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "RF_VALID.data_a" at decode.v(73) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "RF_VALID.we_a" at decode.v(73) has no driver or initial value, using a default initial value '0'
 Warning (10034): Output port "O_Src1Value" at decode.v(46) has no driver
 Warning (10034): Output port "O_Src2Value" at decode.v(47) has no driver
 Warning (10034): Output port "O_DestRegIdx" at decode.v(48) has no driver
@@ -891,7 +897,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3[4]" is stuck at GND
     Warning (13410): Pin "HEX3[5]" is stuck at VCC
     Warning (13410): Pin "HEX3[6]" is stuck at GND
-Info (17049): 37 registers lost all their fanouts during netlist optimizations.
+Info (17049): 77 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
@@ -901,10 +907,10 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
 Info (21057): Implemented 49 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 46 output pins
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 89 warnings
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 85 warnings
     Info: Peak virtual memory: 353 megabytes
-    Info: Processing ended: Mon Mar 25 10:23:24 2013
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Processing ended: Mon Mar 25 11:36:45 2013
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 
