@@ -132,7 +132,7 @@ assign __DepStallSignal =
 	  (I_IR[31:24] == `OP_ANDI_D    ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) : 
 	  (I_IR[31:24] == `OP_MOV       ) ? (1'b0) :
 	  (I_IR[31:24] == `OP_LDW       ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
-	  (I_IR[31:24] == `OP_STW       ) ? ((I_WriteBackEnable == 1) ? ((I_WriteBackRegIdx == I_IR[19:16]) ? (1'b0) : (RF_VALID[I_IR[19:16]] != 1)) : (RF_VALID[I_IR[19:16]] != 1)) :
+	  (I_IR[31:24] == `OP_STW       ) ? (1'b0) :
 	  (I_IR[31:24] == `OP_JSR       ) ? (1'b0) :
 	  (I_IR[31:24] == `OP_JSRR      ) ? (1'b0) :
 	  (I_IR[31:24] == `OP_RET       ) ? (1'b0) :

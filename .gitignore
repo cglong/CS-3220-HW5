@@ -1,9 +1,4 @@
-# Ignore everything
-*
+homework5_v3_restored/db/
+homework5_v3_restored/incremental_db/
+homework5_v3_restored/output_files/
 
-# But not these files...
-!.gitignore
-!homework5_v3_restored/fetch.v
-!homework5_v3_restored/decode.v
-!homework5_v3_restored/execute.v
-!homework5_v3_restored/writeback.v
