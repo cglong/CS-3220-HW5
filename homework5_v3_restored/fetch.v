@@ -81,6 +81,7 @@ begin
     PC <= 0;
     O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
     O_PC <= 16'h4;
+	 O_FetchStall <= 0;
   end else // if (I_LOCK == 0)
   begin
     /////////////////////////////////////////////
@@ -90,13 +91,11 @@ begin
 		PC <= I_BranchPC;
 		O_PC <= PC + 16'h4;
 		O_IR <= InstMem[PC[`PC_WIDTH-1:2]]; 
+		O_FetchStall <= 0;
 	 end
 	 
 	 else if (I_BranchStallSignal || I_DepStallSignal) begin
-		PC <= PC;
-		O_PC <= PC;
 		O_FetchStall <= 1;
-		O_IR <= InstMem[PC[`PC_WIDTH-1:2]]; 
 	 end
 	 
 	 else begin

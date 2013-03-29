@@ -1,5 +1,5 @@
-Analysis & Synthesis report for lg_highlevel
-Thu Mar 28 23:34:04 2013
+Analysis & Elaboration report for lg_highlevel
+Fri Mar 29 15:22:26 2013
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
@@ -7,24 +7,15 @@ Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis IP Cores Summary
-  9. State Machine - |lg_highlevel|Decode:Decode0|ConditionalCode
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: pll:pll0|altpll:altpll_component
- 15. altpll Parameter Settings by Entity Instance
- 16. Port Connectivity Checks: "Decode:Decode0|SignExtension:SE0"
- 17. Port Connectivity Checks: "pll:pll0"
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration IP Cores Summary
+  5. Parameter Settings for User Entity Instance: pll:pll0|altpll:altpll_component
+  6. altpll Parameter Settings by Entity Instance
+  7. Analysis & Elaboration Settings
+  8. Port Connectivity Checks: "Decode:Decode0|SignExtension:SE0"
+  9. Port Connectivity Checks: "pll:pll0"
+ 10. Analysis & Elaboration Messages
 
 
 
@@ -48,108 +39,23 @@ applicable agreement for further details.
 
 
 +-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
+; Analysis & Elaboration Summary                                                ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Mar 28 23:34:04 2013    ;
+; Analysis & Elaboration Status      ; Successful - Fri Mar 29 15:22:26 2013    ;
 ; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
 ; Revision Name                      ; lg_highlevel                             ;
 ; Top-level Entity Name              ; lg_highlevel                             ;
 ; Family                             ; Cyclone II                               ;
-; Total logic elements               ; 0                                        ;
-;     Total combinational functions  ; 0                                        ;
-;     Dedicated logic registers      ; 0                                        ;
-; Total registers                    ; 0                                        ;
-; Total pins                         ; 49                                       ;
-; Total virtual pins                 ; 0                                        ;
-; Total memory bits                  ; 0                                        ;
-; Embedded Multiplier 9-bit elements ; 0                                        ;
-; Total PLLs                         ; 0                                        ;
+; Total logic elements               ; N/A until Partition Merge                ;
+;     Total combinational functions  ; N/A until Partition Merge                ;
+;     Dedicated logic registers      ; N/A until Partition Merge                ;
+; Total registers                    ; N/A until Partition Merge                ;
+; Total pins                         ; N/A until Partition Merge                ;
+; Total virtual pins                 ; N/A until Partition Merge                ;
+; Total memory bits                  ; N/A until Partition Merge                ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                ;
+; Total PLLs                         ; N/A until Partition Merge                ;
 +------------------------------------+------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                        ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
-; Option                                                                     ; Setting            ; Default Value      ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP2C20F484C7       ;                    ;
-; Top-level entity name                                                      ; lg_highlevel       ; lg_highlevel       ;
-; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
-; Use smart compilation                                                      ; Off                ; Off                ;
-; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
-; Enable compact report table                                                ; Off                ; Off                ;
-; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
-; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
-; Preserve fewer node names                                                  ; On                 ; On                 ;
-; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
-; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
-; State Machine Processing                                                   ; Auto               ; Auto               ;
-; Safe State Machine                                                         ; Off                ; Off                ;
-; Extract Verilog State Machines                                             ; On                 ; On                 ;
-; Extract VHDL State Machines                                                ; On                 ; On                 ;
-; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
-; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
-; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
-; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
-; Parallel Synthesis                                                         ; On                 ; On                 ;
-; DSP Block Balancing                                                        ; Auto               ; Auto               ;
-; NOT Gate Push-Back                                                         ; On                 ; On                 ;
-; Power-Up Don't Care                                                        ; On                 ; On                 ;
-; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
-; Remove Duplicate Registers                                                 ; On                 ; On                 ;
-; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
-; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
-; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
-; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
-; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
-; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
-; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
-; Optimization Technique                                                     ; Balanced           ; Balanced           ;
-; Carry Chain Length                                                         ; 70                 ; 70                 ;
-; Auto Carry Chains                                                          ; On                 ; On                 ;
-; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
-; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
-; Auto ROM Replacement                                                       ; On                 ; On                 ;
-; Auto RAM Replacement                                                       ; On                 ; On                 ;
-; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
-; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
-; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
-; Strict RAM Replacement                                                     ; Off                ; Off                ;
-; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
-; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
-; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
-; Auto Resource Sharing                                                      ; Off                ; Off                ;
-; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
-; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
-; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
-; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
-; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
-; Report Parameter Settings                                                  ; On                 ; On                 ;
-; Report Source Assignments                                                  ; On                 ; On                 ;
-; Report Connectivity Checks                                                 ; On                 ; On                 ;
-; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
-; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
-; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
-; HDL message level                                                          ; Level2             ; Level2             ;
-; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
-; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
-; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
-; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
-; Clock MUX Protection                                                       ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
-; Block Design Naming                                                        ; Auto               ; Auto               ;
-; SDC constraint protection                                                  ; Off                ; Off                ;
-; Synthesis Effort                                                           ; Auto               ; Auto               ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
-; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
-; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
-; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
-; Synthesis Seed                                                             ; 1                  ; 1                  ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
 
 
 +------------------------------------------+
@@ -169,310 +75,13 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                        ;
-+----------------------------------+-----------------+---------------------------------------------+------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                                   ; File Name with Absolute Path                                     ; Library ;
-+----------------------------------+-----------------+---------------------------------------------+------------------------------------------------------------------+---------+
-; seven_segment.v                  ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/seven_segment.v    ;         ;
-; writeback.v                      ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/writeback.v        ;         ;
-; memory.v                         ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/memory.v           ;         ;
-; execute.v                        ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/execute.v          ;         ;
-; sign_extension.v                 ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/sign_extension.v   ;         ;
-; decode.v                         ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/decode.v           ;         ;
-; lg_highlevel.v                   ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v     ;         ;
-; global_def.h                     ; yes             ; User Unspecified File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/global_def.h       ;         ;
-; fetch.v                          ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/fetch.v            ;         ;
-; pll.v                            ; yes             ; User Wizard-Generated File                  ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/pll.v              ;         ;
-; data.hex                         ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/data.hex           ;         ;
-; test0.hex                        ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/test0.hex          ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/altpll.tdf        ;         ;
-; aglobal121.inc                   ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/aglobal121.inc    ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/stratix_pll.inc   ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/stratixii_pll.inc ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/cycloneii_pll.inc ;         ;
-+----------------------------------+-----------------+---------------------------------------------+------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 49    ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-+---------------------------------------------+-------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |lg_highlevel              ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 49   ; 0            ; |lg_highlevel       ;              ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
 +----------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                                        ;
+; Analysis & Elaboration IP Cores Summary                                                                                                      ;
 +--------+--------------+---------+--------------+--------------+------------------------+-----------------------------------------------------+
 ; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance        ; IP Include File                                     ;
 +--------+--------------+---------+--------------+--------------+------------------------+-----------------------------------------------------+
 ; Altera ; ALTPLL       ; 12.1    ; N/A          ; N/A          ; |lg_highlevel|pll:pll0 ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/pll.v ;
 +--------+--------------+---------+--------------+--------------+------------------------+-----------------------------------------------------+
-
-
-Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |lg_highlevel|Decode:Decode0|ConditionalCode                                                                                                                                        ;
-+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
-; Name                ; ConditionalCode.111 ; ConditionalCode.110 ; ConditionalCode.101 ; ConditionalCode.100 ; ConditionalCode.011 ; ConditionalCode.010 ; ConditionalCode.001 ; ConditionalCode.000 ;
-+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
-; ConditionalCode.000 ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ;
-; ConditionalCode.001 ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 1                   ;
-; ConditionalCode.010 ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 1                   ;
-; ConditionalCode.011 ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 1                   ;
-; ConditionalCode.100 ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 1                   ;
-; ConditionalCode.101 ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
-; ConditionalCode.110 ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
-; ConditionalCode.111 ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
-+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
-
-
-+----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                               ;
-+-----------------------------------------+----------------------------------------+
-; Register name                           ; Reason for Removal                     ;
-+-----------------------------------------+----------------------------------------+
-; Execute:Execute0|O_DestValue[15]        ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[15]          ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[14]        ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[14]          ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[13]        ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[13]          ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[12]        ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[12]          ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[11]        ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[11]          ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[10]        ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[10]          ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[9]         ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[9]           ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[8]         ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[8]           ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[7]         ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[7]           ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[6]         ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[6]           ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[5]         ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[5]           ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[4]         ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[4]           ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[3]         ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[3]           ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[2]         ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[2]           ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[1]         ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[1]           ; Lost fanout                            ;
-; Execute:Execute0|O_DestValue[0]         ; Lost fanout                            ;
-; Decode:Decode0|O_DestValue[0]           ; Lost fanout                            ;
-; Memory:Memory0|O_BranchAddrSelect       ; Stuck at GND due to stuck port data_in ;
-; Decode:Decode0|O_Src2Value[4..15]       ; Stuck at GND due to stuck port data_in ;
-; Decode:Decode0|O_Src1Value[4..15]       ; Stuck at GND due to stuck port data_in ;
-; Memory:Memory0|O_MemOut[0..15]          ; Lost fanout                            ;
-; Memory:Memory0|O_BranchPC[2..15]        ; Lost fanout                            ;
-; Memory:Memory0|LedROut[0..9]            ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|LedGOut[0..7]            ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[0]                ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[1]                ; Stuck at GND due to stuck port data_in ;
-; Memory:Memory0|HexOut[2,3]              ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[4]                ; Stuck at GND due to stuck port data_in ;
-; Memory:Memory0|HexOut[5]                ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[6]                ; Stuck at GND due to stuck port data_in ;
-; Memory:Memory0|HexOut[7]                ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[8]                ; Stuck at GND due to stuck port data_in ;
-; Memory:Memory0|HexOut[9..12]            ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|HexOut[13]               ; Stuck at GND due to stuck port data_in ;
-; Memory:Memory0|HexOut[14,15]            ; Stuck at VCC due to stuck port data_in ;
-; Fetch:Fetch0|O_FetchStall               ; Stuck at VCC due to stuck port data_in ;
-; Decode:Decode0|O_FetchStall             ; Stuck at VCC due to stuck port data_in ;
-; Execute:Execute0|O_FetchStall           ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|O_FetchStall             ; Stuck at VCC due to stuck port data_in ;
-; Memory:Memory0|O_LOCK                   ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[15]             ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[15]           ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[14]             ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[14]           ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[13]             ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[13]           ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[12]             ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[12]           ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[11]             ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[11]           ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[10]             ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[10]           ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[9]              ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[9]            ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[8]              ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[8]            ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[7]              ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[7]            ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[6]              ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[6]            ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[5]              ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[5]            ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[4]              ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[4]            ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[3]              ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[3]            ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[2]              ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[2]            ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[1]              ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[1]            ; Lost fanout                            ;
-; Memory:Memory0|O_ALUOut[0]              ; Lost fanout                            ;
-; Execute:Execute0|O_ALUOut[0]            ; Lost fanout                            ;
-; Decode:Decode0|O_Src1Value[0..3]        ; Lost fanout                            ;
-; Decode:Decode0|O_Src2Value[0..3]        ; Lost fanout                            ;
-; Execute:Execute0|O_LOCK                 ; Lost fanout                            ;
-; Decode:Decode0|O_LOCK                   ; Lost fanout                            ;
-; Fetch:Fetch0|O_IR[8..11]                ; Lost fanout                            ;
-; Decode:Decode0|RF_VALID[0..15]          ; Lost fanout                            ;
-; Decode:Decode0|O_DestRegIdx[0..3]       ; Lost fanout                            ;
-; Fetch:Fetch0|O_PC[2..15]                ; Lost fanout                            ;
-; Fetch:Fetch0|O_IR[16..31]               ; Lost fanout                            ;
-; Fetch:Fetch0|PC[2..15]                  ; Lost fanout                            ;
-; Fetch:Fetch0|O_LOCK                     ; Lost fanout                            ;
-; Decode:Decode0|ConditionalCode~10       ; Lost fanout                            ;
-; Decode:Decode0|ConditionalCode~11       ; Lost fanout                            ;
-; Decode:Decode0|ConditionalCode~12       ; Lost fanout                            ;
-; clk                                     ; Lost fanout                            ;
-; counter[0..31]                          ; Lost fanout                            ;
-; Decode:Decode0|ConditionalCode.000      ; Lost fanout                            ;
-; Decode:Decode0|ConditionalCode.001      ; Lost fanout                            ;
-; Decode:Decode0|ConditionalCode.010      ; Lost fanout                            ;
-; Decode:Decode0|ConditionalCode.011      ; Lost fanout                            ;
-; Decode:Decode0|ConditionalCode.100      ; Lost fanout                            ;
-; Decode:Decode0|ConditionalCode.101      ; Lost fanout                            ;
-; Decode:Decode0|ConditionalCode.110      ; Lost fanout                            ;
-; Decode:Decode0|ConditionalCode.111      ; Lost fanout                            ;
-; Total Number of Removed Registers = 281 ;                                        ;
-+-----------------------------------------+----------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                     ;
-+-----------------------------------+---------------------------+-------------------------------------------------------------------------------------------------+
-; Register name                     ; Reason for Removal        ; Registers Removed due to This Register                                                          ;
-+-----------------------------------+---------------------------+-------------------------------------------------------------------------------------------------+
-; Memory:Memory0|O_BranchAddrSelect ; Stuck at GND              ; Memory:Memory0|O_BranchPC[2], Memory:Memory0|O_BranchPC[3],                                     ;
-;                                   ; due to stuck port data_in ; Memory:Memory0|O_BranchPC[4], Memory:Memory0|O_BranchPC[5],                                     ;
-;                                   ;                           ; Memory:Memory0|O_BranchPC[6], Memory:Memory0|O_BranchPC[7],                                     ;
-;                                   ;                           ; Memory:Memory0|O_BranchPC[8], Memory:Memory0|O_BranchPC[9],                                     ;
-;                                   ;                           ; Memory:Memory0|O_BranchPC[10], Memory:Memory0|O_BranchPC[11],                                   ;
-;                                   ;                           ; Memory:Memory0|O_BranchPC[12], Memory:Memory0|O_BranchPC[13],                                   ;
-;                                   ;                           ; Memory:Memory0|O_BranchPC[14], Memory:Memory0|O_BranchPC[15],                                   ;
-;                                   ;                           ; Fetch:Fetch0|O_FetchStall, Decode:Decode0|O_FetchStall,                                         ;
-;                                   ;                           ; Execute:Execute0|O_FetchStall, Memory:Memory0|O_FetchStall,                                     ;
-;                                   ;                           ; Memory:Memory0|O_ALUOut[15], Execute:Execute0|O_ALUOut[15],                                     ;
-;                                   ;                           ; Memory:Memory0|O_ALUOut[14], Execute:Execute0|O_ALUOut[14],                                     ;
-;                                   ;                           ; Memory:Memory0|O_ALUOut[13], Execute:Execute0|O_ALUOut[13],                                     ;
-;                                   ;                           ; Memory:Memory0|O_ALUOut[12], Execute:Execute0|O_ALUOut[12],                                     ;
-;                                   ;                           ; Memory:Memory0|O_ALUOut[11], Execute:Execute0|O_ALUOut[11],                                     ;
-;                                   ;                           ; Memory:Memory0|O_ALUOut[10], Execute:Execute0|O_ALUOut[10],                                     ;
-;                                   ;                           ; Memory:Memory0|O_ALUOut[9], Execute:Execute0|O_ALUOut[9], Memory:Memory0|O_ALUOut[8],           ;
-;                                   ;                           ; Execute:Execute0|O_ALUOut[8], Memory:Memory0|O_ALUOut[7],                                       ;
-;                                   ;                           ; Execute:Execute0|O_ALUOut[7], Memory:Memory0|O_ALUOut[6],                                       ;
-;                                   ;                           ; Execute:Execute0|O_ALUOut[6], Memory:Memory0|O_ALUOut[5],                                       ;
-;                                   ;                           ; Execute:Execute0|O_ALUOut[5], Fetch:Fetch0|O_PC[2], Fetch:Fetch0|O_PC[3],                       ;
-;                                   ;                           ; Fetch:Fetch0|O_PC[4], Fetch:Fetch0|O_PC[5], Fetch:Fetch0|O_PC[6], Fetch:Fetch0|O_PC[7],         ;
-;                                   ;                           ; Fetch:Fetch0|O_PC[8], Fetch:Fetch0|O_PC[9], Fetch:Fetch0|O_PC[10],                              ;
-;                                   ;                           ; Fetch:Fetch0|O_PC[11], Fetch:Fetch0|O_PC[12], Fetch:Fetch0|O_PC[13],                            ;
-;                                   ;                           ; Fetch:Fetch0|O_PC[14], Fetch:Fetch0|O_PC[15]                                                    ;
-; Execute:Execute0|O_DestValue[15]  ; Lost Fanouts              ; Decode:Decode0|O_DestValue[15], Memory:Memory0|O_LOCK, Memory:Memory0|O_ALUOut[4],              ;
-;                                   ;                           ; Execute:Execute0|O_ALUOut[4], Memory:Memory0|O_ALUOut[3],                                       ;
-;                                   ;                           ; Execute:Execute0|O_ALUOut[3], Memory:Memory0|O_ALUOut[2],                                       ;
-;                                   ;                           ; Execute:Execute0|O_ALUOut[2], Memory:Memory0|O_ALUOut[1],                                       ;
-;                                   ;                           ; Execute:Execute0|O_ALUOut[1], Memory:Memory0|O_ALUOut[0],                                       ;
-;                                   ;                           ; Execute:Execute0|O_ALUOut[0], Decode:Decode0|O_LOCK, Fetch:Fetch0|O_LOCK, clk,                  ;
-;                                   ;                           ; counter[2], counter[1], counter[0], counter[3], counter[4], counter[5], counter[6], counter[7], ;
-;                                   ;                           ; counter[8], counter[9], counter[10], counter[11], counter[12], counter[13], counter[14],        ;
-;                                   ;                           ; counter[15], counter[16], counter[17], counter[18], counter[19], counter[20], counter[21],      ;
-;                                   ;                           ; counter[22], counter[23], counter[24], counter[25], counter[26], counter[27], counter[28],      ;
-;                                   ;                           ; counter[29], counter[30], counter[31]                                                           ;
-; Decode:Decode0|RF_VALID[0]        ; Lost Fanouts              ; Decode:Decode0|O_DestRegIdx[0], Decode:Decode0|O_DestRegIdx[1],                                 ;
-;                                   ;                           ; Decode:Decode0|O_DestRegIdx[2], Decode:Decode0|O_DestRegIdx[3],                                 ;
-;                                   ;                           ; Fetch:Fetch0|O_IR[20], Fetch:Fetch0|O_IR[21], Fetch:Fetch0|O_IR[22],                            ;
-;                                   ;                           ; Fetch:Fetch0|O_IR[23], Fetch:Fetch0|O_IR[27], Fetch:Fetch0|O_IR[28],                            ;
-;                                   ;                           ; Fetch:Fetch0|O_IR[29], Fetch:Fetch0|O_IR[30], Fetch:Fetch0|O_IR[31]                             ;
-; Decode:Decode0|ConditionalCode~10 ; Lost Fanouts              ; Decode:Decode0|ConditionalCode.001, Decode:Decode0|ConditionalCode.011,                         ;
-;                                   ;                           ; Decode:Decode0|ConditionalCode.101, Decode:Decode0|ConditionalCode.111                          ;
-; Decode:Decode0|ConditionalCode~11 ; Lost Fanouts              ; Decode:Decode0|ConditionalCode.010, Decode:Decode0|ConditionalCode.110                          ;
-; Execute:Execute0|O_DestValue[14]  ; Lost Fanouts              ; Decode:Decode0|O_DestValue[14]                                                                  ;
-; Execute:Execute0|O_DestValue[13]  ; Lost Fanouts              ; Decode:Decode0|O_DestValue[13]                                                                  ;
-; Execute:Execute0|O_DestValue[12]  ; Lost Fanouts              ; Decode:Decode0|O_DestValue[12]                                                                  ;
-; Execute:Execute0|O_DestValue[11]  ; Lost Fanouts              ; Decode:Decode0|O_DestValue[11]                                                                  ;
-; Execute:Execute0|O_DestValue[10]  ; Lost Fanouts              ; Decode:Decode0|O_DestValue[10]                                                                  ;
-; Execute:Execute0|O_DestValue[9]   ; Lost Fanouts              ; Decode:Decode0|O_DestValue[9]                                                                   ;
-; Execute:Execute0|O_DestValue[8]   ; Lost Fanouts              ; Decode:Decode0|O_DestValue[8]                                                                   ;
-; Execute:Execute0|O_DestValue[7]   ; Lost Fanouts              ; Decode:Decode0|O_DestValue[7]                                                                   ;
-; Execute:Execute0|O_DestValue[6]   ; Lost Fanouts              ; Decode:Decode0|O_DestValue[6]                                                                   ;
-; Execute:Execute0|O_DestValue[5]   ; Lost Fanouts              ; Decode:Decode0|O_DestValue[5]                                                                   ;
-; Execute:Execute0|O_DestValue[4]   ; Lost Fanouts              ; Decode:Decode0|O_DestValue[4]                                                                   ;
-; Execute:Execute0|O_DestValue[3]   ; Lost Fanouts              ; Decode:Decode0|O_DestValue[3]                                                                   ;
-; Execute:Execute0|O_DestValue[2]   ; Lost Fanouts              ; Decode:Decode0|O_DestValue[2]                                                                   ;
-; Execute:Execute0|O_DestValue[1]   ; Lost Fanouts              ; Decode:Decode0|O_DestValue[1]                                                                   ;
-; Execute:Execute0|O_DestValue[0]   ; Lost Fanouts              ; Decode:Decode0|O_DestValue[0]                                                                   ;
-; Memory:Memory0|O_MemOut[0]        ; Lost Fanouts              ; Execute:Execute0|O_LOCK                                                                         ;
-; Decode:Decode0|O_Src1Value[3]     ; Lost Fanouts              ; Fetch:Fetch0|O_IR[19]                                                                           ;
-; Decode:Decode0|O_Src1Value[2]     ; Lost Fanouts              ; Fetch:Fetch0|O_IR[18]                                                                           ;
-; Decode:Decode0|O_Src1Value[1]     ; Lost Fanouts              ; Fetch:Fetch0|O_IR[17]                                                                           ;
-; Decode:Decode0|O_Src1Value[0]     ; Lost Fanouts              ; Fetch:Fetch0|O_IR[16]                                                                           ;
-; Decode:Decode0|O_Src2Value[3]     ; Lost Fanouts              ; Fetch:Fetch0|O_IR[11]                                                                           ;
-; Decode:Decode0|O_Src2Value[2]     ; Lost Fanouts              ; Fetch:Fetch0|O_IR[10]                                                                           ;
-; Decode:Decode0|O_Src2Value[1]     ; Lost Fanouts              ; Fetch:Fetch0|O_IR[9]                                                                            ;
-; Decode:Decode0|O_Src2Value[0]     ; Lost Fanouts              ; Fetch:Fetch0|O_IR[8]                                                                            ;
-; Decode:Decode0|ConditionalCode~12 ; Lost Fanouts              ; Decode:Decode0|ConditionalCode.100                                                              ;
-+-----------------------------------+---------------------------+-------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |lg_highlevel|counter[2]   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +-------------------------------------------------------------------------------+
@@ -866,6 +475,91 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+----------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration Settings                                                                                      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                      ; lg_highlevel       ; lg_highlevel       ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "Decode:Decode0|SignExtension:SE0"                                                                                          ;
 +------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
@@ -885,23 +579,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:01     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 32-bit Analysis & Synthesis
+Info: Running Quartus II 32-bit Analysis & Elaboration
     Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
-    Info: Processing started: Thu Mar 28 23:33:59 2013
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lg_highlevel -c lg_highlevel
+    Info: Processing started: Fri Mar 29 15:22:23 2013
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lg_highlevel -c lg_highlevel --analysis_and_elaboration
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file seven_segment.v
     Info (12023): Found entity 1: SevenSeg
@@ -1006,71 +691,11 @@ Warning (10034): Output port "O_DepStall" at memory.v(50) has no driver
 Info (12128): Elaborating entity "SevenSeg" for hierarchy "Memory:Memory0|SevenSeg:sseg0"
 Info (12128): Elaborating entity "Writeback" for hierarchy "Writeback:Writeback0"
 Warning (10230): Verilog HDL assignment warning at writeback.v(60): truncated value with size 32 to match size of target (4)
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following PLL node(s):
-        Warning (14320): Synthesized away node "pll:pll0|altpll:altpll_component|_clk0"
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at VCC
-    Warning (13410): Pin "LEDR[1]" is stuck at VCC
-    Warning (13410): Pin "LEDR[2]" is stuck at VCC
-    Warning (13410): Pin "LEDR[3]" is stuck at VCC
-    Warning (13410): Pin "LEDR[4]" is stuck at VCC
-    Warning (13410): Pin "LEDR[5]" is stuck at VCC
-    Warning (13410): Pin "LEDR[6]" is stuck at VCC
-    Warning (13410): Pin "LEDR[7]" is stuck at VCC
-    Warning (13410): Pin "LEDR[8]" is stuck at VCC
-    Warning (13410): Pin "LEDR[9]" is stuck at VCC
-    Warning (13410): Pin "LEDG[0]" is stuck at VCC
-    Warning (13410): Pin "LEDG[1]" is stuck at VCC
-    Warning (13410): Pin "LEDG[2]" is stuck at VCC
-    Warning (13410): Pin "LEDG[3]" is stuck at VCC
-    Warning (13410): Pin "LEDG[4]" is stuck at VCC
-    Warning (13410): Pin "LEDG[5]" is stuck at VCC
-    Warning (13410): Pin "LEDG[6]" is stuck at VCC
-    Warning (13410): Pin "LEDG[7]" is stuck at VCC
-    Warning (13410): Pin "HEX0[0]" is stuck at VCC
-    Warning (13410): Pin "HEX0[1]" is stuck at GND
-    Warning (13410): Pin "HEX0[2]" is stuck at GND
-    Warning (13410): Pin "HEX0[3]" is stuck at GND
-    Warning (13410): Pin "HEX0[4]" is stuck at GND
-    Warning (13410): Pin "HEX0[5]" is stuck at VCC
-    Warning (13410): Pin "HEX0[6]" is stuck at GND
-    Warning (13410): Pin "HEX1[0]" is stuck at GND
-    Warning (13410): Pin "HEX1[1]" is stuck at GND
-    Warning (13410): Pin "HEX1[2]" is stuck at GND
-    Warning (13410): Pin "HEX1[3]" is stuck at VCC
-    Warning (13410): Pin "HEX1[4]" is stuck at GND
-    Warning (13410): Pin "HEX1[5]" is stuck at GND
-    Warning (13410): Pin "HEX1[6]" is stuck at GND
-    Warning (13410): Pin "HEX2[0]" is stuck at GND
-    Warning (13410): Pin "HEX2[1]" is stuck at VCC
-    Warning (13410): Pin "HEX2[2]" is stuck at VCC
-    Warning (13410): Pin "HEX2[3]" is stuck at GND
-    Warning (13410): Pin "HEX2[4]" is stuck at GND
-    Warning (13410): Pin "HEX2[5]" is stuck at GND
-    Warning (13410): Pin "HEX2[6]" is stuck at GND
-    Warning (13410): Pin "HEX3[0]" is stuck at VCC
-    Warning (13410): Pin "HEX3[1]" is stuck at GND
-    Warning (13410): Pin "HEX3[2]" is stuck at GND
-    Warning (13410): Pin "HEX3[3]" is stuck at GND
-    Warning (13410): Pin "HEX3[4]" is stuck at GND
-    Warning (13410): Pin "HEX3[5]" is stuck at VCC
-    Warning (13410): Pin "HEX3[6]" is stuck at GND
-Info (17049): 218 registers lost all their fanouts during netlist optimizations.
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLOCK_27[0]"
-    Warning (15610): No output dependent on input pin "CLOCK_27[1]"
-    Warning (15610): No output dependent on input pin "CLOCK_50"
-Info (21057): Implemented 49 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 46 output pins
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 74 warnings
+Info: Quartus II 32-bit Analysis & Elaboration was successful. 0 errors, 20 warnings
     Info: Peak virtual memory: 353 megabytes
-    Info: Processing ended: Thu Mar 28 23:34:04 2013
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Processing ended: Fri Mar 29 15:22:26 2013
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 
