@@ -105,7 +105,6 @@ begin
 		O_IR <= InstMem[PC[`PC_WIDTH-1:2]]; 
 	 end
 		
-
   end // if (I_LOCK == 0)
 end // always @(negedge I_CLOCK)
 

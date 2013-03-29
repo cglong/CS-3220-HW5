@@ -93,6 +93,24 @@ begin
     /////////////////////////////////////////////
     // TODO: Complete here 
     /////////////////////////////////////////////
+	 
+	 if ((I_Opcode >> 3) == 5'b11011 || I_Opcode == `OP_JSR || I_Opcode == `OP_JSRR || I_Opcode == `OP_RET || I_Opcode == `OP_JMP) begin
+		O_BranchPC <= I_ALUOut;
+		O_BranchAddrSelect <= 1;
+	 end
+	 else if (I_Opcode == `OP_LDW) begin
+		O_BranchAddrSelect <= 0;
+		O_MemOut <= DataMem[I_ALUOut];
+	 end
+	 else if (I_Opcode == `OP_STW) begin
+		O_BranchAddrSelect <= 0;
+		DataMem[I_ALUOut] <= I_DestValue;
+	 end
+	 else begin
+		O_ALUOut <= I_ALUOut;
+		O_BranchAddrSelect <= 0;
+	 end
+	 
   end else // if (I_LOCK == 1'b1)
   begin
     O_BranchAddrSelect <= 1'b0;

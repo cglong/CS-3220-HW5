@@ -72,12 +72,12 @@ begin
     // TODO: Complete here 
     /////////////////////////////////////////////
 	 
-	 if (I_Opcode == `OP_ADD_D)  O_DestValue <= I_Src1Value + I_Src2Value;
-	 if (I_Opcode == `OP_ADDI_D) O_DestValue <= I_Src1Value + I_Imm;
-	 if (I_Opcode == `OP_AND_D)  O_DestValue <= I_Src1Value & I_Src2Value;
-	 if (I_Opcode == `OP_ANDI_D) O_DestValue <= I_Src1Value & I_Imm;
-	 if (I_Opcode == `OP_MOV)    O_DestValue <= I_Src1Value;
-	 if (I_Opcode == `OP_MOVI_D) O_DestValue <= I_Imm;
+	 if (I_Opcode == `OP_ADD_D)  O_ALUOut <= I_Src1Value + I_Src2Value;
+	 if (I_Opcode == `OP_ADDI_D) O_ALUOut <= I_Src1Value + I_Imm;
+	 if (I_Opcode == `OP_AND_D)  O_ALUOut <= I_Src1Value & I_Src2Value;
+	 if (I_Opcode == `OP_ANDI_D) O_ALUOut <= I_Src1Value & I_Imm;
+	 if (I_Opcode == `OP_MOV)    O_ALUOut <= I_Src1Value;
+	 if (I_Opcode == `OP_MOVI_D) O_ALUOut <= I_Imm;
 	 if (I_Opcode == `OP_BRN)    O_ALUOut <= I_PC + I_Imm << 2;
 	 if (I_Opcode == `OP_BRP)    O_ALUOut <= I_PC + I_Imm << 2;
 	 if (I_Opcode == `OP_BRNZ)   O_ALUOut <= I_PC + I_Imm << 2;
@@ -88,6 +88,8 @@ begin
 	 if (I_Opcode == `OP_JSR)    O_ALUOut <= I_PC + I_Imm << 2;
 	 if (I_Opcode == `OP_LDW)    O_ALUOut <= I_Src1Value + I_Imm;
 	 if (I_Opcode == `OP_STW)    O_ALUOut <= I_Src1Value + I_Imm;
+	 
+	 O_DestValue <= I_DestValue;
 	 
   end // if (I_LOCK == 1'b1)
 end // always @(negedge I_CLOCK)

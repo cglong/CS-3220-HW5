@@ -1,0 +1,192 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\wamp\www\CS-3220-HW5\homework5_v3_restored\simulation\modelsim
+vDecode
+Ik]fH;]V8c4D8lcS_eXd_U3
+VU2hbXDd75DRz=Tm56?>[F2
+Z1 dC:\wamp\www\CS-3220-HW5\homework5_v3_restored\simulation\modelsim
+w1364525285
+8C:/wamp/www/CS-3220-HW5/homework5_v3_restored/decode.v
+FC:/wamp/www/CS-3220-HW5/homework5_v3_restored/decode.v
+L0 3
+Z2 OV;L;10.1b;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+Z4 !s92 -vlog01compat -work work +incdir+C:/wamp/www/CS-3220-HW5/homework5_v3_restored -O0
+n@decode
+!i10b 1
+!s100 eF5Q8<:Bgg]DiT0YXmC9X3
+!s85 0
+!s108 1364527763.905000
+!s107 C:/wamp/www/CS-3220-HW5/homework5_v3_restored/global_def.h|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/decode.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/wamp/www/CS-3220-HW5/homework5_v3_restored|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/decode.v|
+!s101 -O0
+vExecute
+I?4[3kf78cZ5m95M0S7XXE2
+V>4bVRjJN:zKkDAzEzbWk62
+R1
+w1364525260
+8C:/wamp/www/CS-3220-HW5/homework5_v3_restored/execute.v
+FC:/wamp/www/CS-3220-HW5/homework5_v3_restored/execute.v
+L0 3
+R2
+r1
+31
+R3
+R4
+n@execute
+!i10b 1
+!s100 d>VNe5Vn3gnB_VVWL6=c?0
+!s85 0
+!s108 1364527763.697000
+!s107 C:/wamp/www/CS-3220-HW5/homework5_v3_restored/global_def.h|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/execute.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/wamp/www/CS-3220-HW5/homework5_v3_restored|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/execute.v|
+!s101 -O0
+vFetch
+ISzDzjZhTWm9MkON][F0R41
+VjL8k?<4jZBi6:U1zF0H=Y0
+R1
+w1364527712
+8C:/wamp/www/CS-3220-HW5/homework5_v3_restored/fetch.v
+FC:/wamp/www/CS-3220-HW5/homework5_v3_restored/fetch.v
+L0 3
+R2
+r1
+31
+R3
+R4
+n@fetch
+!i10b 1
+!s100 YIALl4cV;aVG`AmhE5cCl0
+!s85 0
+!s108 1364527764.368000
+!s107 C:/wamp/www/CS-3220-HW5/homework5_v3_restored/global_def.h|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/fetch.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/wamp/www/CS-3220-HW5/homework5_v3_restored|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/fetch.v|
+!s101 -O0
+vlg_highlevel
+!i10b 1
+!s100 G01iYZj6WaeailOo5WMDH2
+IVW5PJh_aJ1hhmQl<moQXK2
+V=Si@d[me>mWTE;:Pa>@H81
+R1
+w1363660840
+8C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v
+FC:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v
+L0 5
+R2
+r1
+!s85 0
+31
+!s108 1364527764.601000
+!s107 C:/wamp/www/CS-3220-HW5/homework5_v3_restored/global_def.h|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/wamp/www/CS-3220-HW5/homework5_v3_restored|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v|
+!s101 -O0
+R3
+R4
+vMemory
+IYg[Y[Y:XUV1@6CZH=7k0A0
+V6eYj=22nOCOiL=WE`Ei?n3
+R1
+w1364524651
+8C:/wamp/www/CS-3220-HW5/homework5_v3_restored/memory.v
+FC:/wamp/www/CS-3220-HW5/homework5_v3_restored/memory.v
+L0 3
+R2
+r1
+31
+R3
+R4
+n@memory
+!i10b 1
+!s100 0MRlMk_BfBBJhe5O5a?Sn3
+!s85 0
+!s108 1364527763.503000
+!s107 C:/wamp/www/CS-3220-HW5/homework5_v3_restored/global_def.h|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/wamp/www/CS-3220-HW5/homework5_v3_restored|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/memory.v|
+!s101 -O0
+vpll
+IJd?k:mndY4T<TK6a8m=4d1
+V_XSVm9JT6dEoXJ=[=cVXa3
+R1
+w1362508816
+8C:/wamp/www/CS-3220-HW5/homework5_v3_restored/pll.v
+FC:/wamp/www/CS-3220-HW5/homework5_v3_restored/pll.v
+L0 39
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 R8PNg]l8?HN8PUH[IK6o23
+!s85 0
+!s108 1364527763.017000
+!s107 C:/wamp/www/CS-3220-HW5/homework5_v3_restored/pll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/wamp/www/CS-3220-HW5/homework5_v3_restored|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/pll.v|
+!s101 -O0
+vSevenSeg
+I7DmiG?aOm_mnm=8HY2Z^P1
+VE>VAWodAcA0XbzQM`Nba60
+R1
+w1329523234
+8C:/wamp/www/CS-3220-HW5/homework5_v3_restored/seven_segment.v
+FC:/wamp/www/CS-3220-HW5/homework5_v3_restored/seven_segment.v
+L0 1
+R2
+r1
+31
+R3
+n@seven@seg
+R4
+!i10b 1
+!s100 ?0=clU^Y;C?]z3L`7kKR[1
+!s85 0
+!s108 1364527762.621000
+!s107 C:/wamp/www/CS-3220-HW5/homework5_v3_restored/seven_segment.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/wamp/www/CS-3220-HW5/homework5_v3_restored|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/seven_segment.v|
+!s101 -O0
+vSignExtension
+IBM;^@DT=PRS?z=?U]Ek6g3
+Vl2bD2B8b=WZP:Ln<Y3WeY3
+R1
+w1362159564
+8C:/wamp/www/CS-3220-HW5/homework5_v3_restored/sign_extension.v
+FC:/wamp/www/CS-3220-HW5/homework5_v3_restored/sign_extension.v
+L0 1
+R2
+r1
+31
+R3
+R4
+n@sign@extension
+!i10b 1
+!s100 >Qe4GSkF2<Q1LKTjAmgBd0
+!s85 0
+!s108 1364527762.824000
+!s107 C:/wamp/www/CS-3220-HW5/homework5_v3_restored/sign_extension.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/wamp/www/CS-3220-HW5/homework5_v3_restored|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/sign_extension.v|
+!s101 -O0
+vWriteback
+I^=<Xiile?OOU5Xjl]acRk0
+V@h0YcE[Q`<C;W6oGME9JG3
+R1
+w1364525161
+8C:/wamp/www/CS-3220-HW5/homework5_v3_restored/writeback.v
+FC:/wamp/www/CS-3220-HW5/homework5_v3_restored/writeback.v
+L0 3
+R2
+r1
+31
+R3
+R4
+n@writeback
+!i10b 1
+!s100 aJZ`eZB:?5^E9?j_9<=V11
+!s85 0
+!s108 1364527763.241000
+!s107 C:/wamp/www/CS-3220-HW5/homework5_v3_restored/global_def.h|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/writeback.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/wamp/www/CS-3220-HW5/homework5_v3_restored|C:/wamp/www/CS-3220-HW5/homework5_v3_restored/writeback.v|
+!s101 -O0
