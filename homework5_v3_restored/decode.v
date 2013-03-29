@@ -198,9 +198,9 @@ begin
     /////////////////////////////////////////////
     // TODO: Complete here 
     /////////////////////////////////////////////
-	 O_Src1Value <= IR[19:16];
-	 O_Src2Value <= IR[11:8];
-	 O_DestRegIdx <= IR[23:20];
+	 O_Src1Value <= I_IR[19:16];
+	 O_Src2Value <= I_IR[11:8];
+	 O_DestRegIdx <= I_IR[23:20];
 	 O_DestValue <= RF[O_DestRegIdx];
 	 //FIXME -- update valid bit????
   end // if (I_LOCK == 1'b1)
