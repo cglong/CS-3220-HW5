@@ -54,7 +54,7 @@ reg[`PC_WIDTH-1:0] PC;
 //
 initial 
 begin
-  $readmemh("test0.hex", InstMem);
+  $readmemh("test1.hex", InstMem);
   PC = 16'h0;
 
   O_LOCK = 1'b0;
@@ -99,9 +99,9 @@ begin
 	 end
 	 
 	 else begin
+	 	O_IR <= InstMem[PC[`PC_WIDTH-1:2]]; 
 		PC <= O_PC;
 		O_PC <= PC + 16'h4;
-		O_IR <= InstMem[PC[`PC_WIDTH-1:2]]; 
 	 end
 		
   end // if (I_LOCK == 0)

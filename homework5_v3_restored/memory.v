@@ -107,9 +107,13 @@ begin
 		DataMem[I_ALUOut] <= I_DestValue;
 	 end
 	 else begin
-		O_ALUOut <= I_ALUOut;
 		O_BranchAddrSelect <= 0;
 	 end
+	 
+	 O_ALUOut <= I_ALUOut;
+	 O_Opcode <= I_Opcode;
+	 O_DestRegIdx <= I_DestRegIdx;
+	 O_DepStall <= I_DepStall;
 	 
   end else // if (I_LOCK == 1'b1)
   begin

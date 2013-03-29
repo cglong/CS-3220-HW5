@@ -88,7 +88,7 @@ assign O_WriteBackData =
 		 (I_Opcode == `OP_AND_D ) ? (I_ALUOut) :
 		 (I_Opcode == `OP_ANDI_D) ? (I_ALUOut) :
 		 (I_Opcode == `OP_MOV   ) ? (I_ALUOut) :
-		 (I_Opcode == `OP_LDW   ) ? (I_MemOut) :
+		 (I_Opcode == `OP_LDW   ) ? (I_ALUOut) :
 		 (I_Opcode == `OP_JSR   ) ? (I_ALUOut) :
 		 (I_Opcode == `OP_JSRR  ) ? (I_ALUOut) :
        (16'h0000)

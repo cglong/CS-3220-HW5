@@ -205,7 +205,8 @@ begin
 	 O_Src2Value <= I_IR[11:8];
 	 O_DestRegIdx <= I_IR[23:20];
 	 O_DestValue <= RF[O_DestRegIdx];
-	 RF_VALID[O_DestRegIdx] <= 0;
+	 O_Imm <= I_IR[15:0];
+	 RF_VALID[I_WriteBackRegIdx] <= 1;
 	 if (I_IR[31:24] == `OP_ADD_D || I_IR[31:24] == `OP_AND_D || I_IR[31:24] == `OP_ADDI_D || I_IR[31:24] == `OP_ANDI_D || I_IR[31:24] == `OP_LDW || 
 		I_IR[31:24] == `OP_JSR || I_IR[31:24] == `OP_JSRR || I_IR[31:24] == `OP_MOVI_D || I_IR[31:24] == `OP_MOV)
 		RF_VALID[I_IR[23:20]] <= 0;

@@ -90,6 +90,9 @@ begin
 	 if (I_Opcode == `OP_STW)    O_ALUOut <= I_Src1Value + I_Imm;
 	 
 	 O_DestValue <= I_DestValue;
+	 O_Opcode <= I_Opcode;
+	 O_DestRegIdx <= I_DestRegIdx;
+	 O_DepStall <= I_DepStall;
 	 
   end // if (I_LOCK == 1'b1)
 end // always @(negedge I_CLOCK)
