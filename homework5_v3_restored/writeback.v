@@ -50,7 +50,7 @@ assign O_WriteBackEnable =
        /////////////////////////////////////////////
 		 (I_Opcode == `OP_AND_D ) ? (1'b1) :
 		 (I_Opcode == `OP_ANDI_D) ? (1'b1) :
-		 (I_Opcode == `OP_MOV)    ? (1'b1) :
+		 (I_Opcode == `OP_MOV   ) ? (1'b1) :
        (I_Opcode == `OP_JSRR  ) ? (1'b1) : 
 		 (I_Opcode == `OP_JSR   ) ? (1'b1) : 
        (1'b0)

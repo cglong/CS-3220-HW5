@@ -203,7 +203,15 @@ begin
     /////////////////////////////////////////////
 	 O_Src1Value <= I_IR[19:16];
 	 O_Src2Value <= I_IR[11:8];
-	 O_DestRegIdx <= I_IR[23:20];
+	 O_Opcode <= 	 I_IR[31:24];
+	 O_PC <= I_PC;
+	 
+
+	 if (I_IR[31:24] == `OP_MOV || I_IR[31:24] == `OP_MOVI_D) 
+		O_DestRegIdx <= O_Src1Value;
+	 else
+		O_DestRegIdx <= I_IR[23:20];
+		
 	 O_DestValue <= RF[O_DestRegIdx];
 	 O_Imm <= I_IR[15:0];
 	 RF_VALID[I_WriteBackRegIdx] <= 1;

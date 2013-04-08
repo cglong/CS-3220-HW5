@@ -76,7 +76,7 @@ begin
 	 if (I_Opcode == `OP_ADDI_D) O_ALUOut <= I_Src1Value + I_Imm;
 	 if (I_Opcode == `OP_AND_D)  O_ALUOut <= I_Src1Value & I_Src2Value;
 	 if (I_Opcode == `OP_ANDI_D) O_ALUOut <= I_Src1Value & I_Imm;
-	 if (I_Opcode == `OP_MOV)    O_ALUOut <= I_Src1Value;
+	 if (I_Opcode == `OP_MOV)    O_ALUOut <= I_Src2Value;
 	 if (I_Opcode == `OP_MOVI_D) O_ALUOut <= I_Imm;
 	 if (I_Opcode == `OP_BRN)    O_ALUOut <= I_PC + I_Imm << 2;
 	 if (I_Opcode == `OP_BRP)    O_ALUOut <= I_PC + I_Imm << 2;
