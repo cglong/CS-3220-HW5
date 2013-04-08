@@ -53,6 +53,7 @@ assign O_WriteBackEnable =
 		 (I_Opcode == `OP_MOV   ) ? (1'b1) :
        (I_Opcode == `OP_JSRR  ) ? (1'b1) : 
 		 (I_Opcode == `OP_JSR   ) ? (1'b1) : 
+		 (I_Opcode == `OP_LDW   ) ? (1'b1) : 
        (1'b0)
       ) : (1'b0)
     ) : (1'b0);
