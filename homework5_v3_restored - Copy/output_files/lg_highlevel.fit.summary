@@ -1,0 +1,16 @@
+Fitter Status : Successful - Fri Mar 29 15:57:29 2013
+Quartus II 32-bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
+Revision Name : lg_highlevel
+Top-level Entity Name : lg_highlevel
+Family : Cyclone II
+Device : EP2C20F484C7
+Timing Models : Final
+Total logic elements : 0 / 18,752 ( 0 % )
+    Total combinational functions : 0 / 18,752 ( 0 % )
+    Dedicated logic registers : 0 / 18,752 ( 0 % )
+Total registers : 0
+Total pins : 49 / 315 ( 16 % )
+Total virtual pins : 0
+Total memory bits : 0 / 239,616 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 52 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

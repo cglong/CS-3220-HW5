@@ -23,7 +23,7 @@ input I_LOCK;
 
 // Inputs from the memory stage 
 input [`PC_WIDTH-1:0] I_BranchPC; // Branch Target Address
-input I_BranchAddrSelect; // Asserted only when Branch Target Address resolves
+input[1:0] I_BranchAddrSelect; // Asserted only when Branch Target Address resolves
 
 // Inputs from the decode stage
 input I_BranchStallSignal; // Asserted from when branch instruction is decode to when Branch Target Address resolves 
@@ -47,7 +47,7 @@ output reg O_FetchStall;
 //
 reg[`INST_WIDTH-1:0] InstMem[0:`INST_MEM_SIZE-1];
 reg[`PC_WIDTH-1:0] PC;  
-
+reg branchwait;
 /////////////////////////////////////////
 // INITIAL/ASSIGN STATEMENT GOES HERE
 /////////////////////////////////////////
@@ -56,7 +56,7 @@ initial
 begin
   $readmemh("test1.hex", InstMem);
   PC = 16'h0;
-
+  branchwait = 0;
   O_LOCK = 1'b0;
   O_PC = 16'h4;
   O_IR = 32'hFF000000;
@@ -74,37 +74,67 @@ end
 /////////////////////////////////////////
 always @(negedge I_CLOCK)
 begin      
-  O_LOCK <= I_LOCK;
-
-  if (I_LOCK == 0)
-  begin
-    PC <= 0;
-    O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
-    O_PC <= 16'h4;
-	 O_FetchStall <= 0;
-  end else // if (I_LOCK == 0)
-  begin
-    /////////////////////////////////////////////
-    // TODO: Complete here
-    /////////////////////////////////////////////
-	 if (I_BranchAddrSelect) begin
-		PC <= I_BranchPC;
-		O_PC <= PC + 16'h4;
-		O_IR <= InstMem[PC[`PC_WIDTH-1:2]]; 
-		O_FetchStall <= 0;
-	 end
-	 
-	 else if (I_BranchStallSignal || I_DepStallSignal) begin
-		O_FetchStall <= 1;
-	 end
-	 
-	 else begin
-	 	O_IR <= InstMem[PC[`PC_WIDTH-1:2]]; 
-		PC <= O_PC;
-		O_PC <= PC + 16'h4;
-	 end
-		
-  end // if (I_LOCK == 0)
-end // always @(negedge I_CLOCK)
+   O_LOCK <= I_LOCK;
+   if (I_LOCK == 0)
+   begin
+      PC <= 0;
+      O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
+      O_PC <= 16'h4;
+   end 
+	else // if (I_LOCK == 0)
+   begin
+        /////////////////////////////////////////////
+       // TODO: Complete here
+       
+		  if(I_BranchAddrSelect == 1 && branchwait == 1)//Target address resolved.. Branch.
+        begin
+            O_FetchStall <= 0;
+            PC <= I_BranchPC;
+            O_IR <= InstMem[I_BranchPC[`PC_WIDTH-1:2]];
+            O_PC <= I_BranchPC;
+				
+            branchwait <= 0;
+        end 
+		  else if(I_BranchAddrSelect == 0 && branchwait == 1) //branch address still needs to be resolved
+        begin
+            O_FetchStall <= 0;
+            O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
+				PC <= PC + 16'h4;
+            O_PC <= PC;
+				branchwait <= 0;
+        end 
+		  else if(branchwait == 1) //branch address still needs to be resolved
+        begin
+            O_FetchStall <= 1; //Stall and wait for target address.
+            //Again.. passing something through in case.
+            //O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
+            //O_PC <= PC;
+        end 
+		  else if(I_BranchStallSignal == 1'b1) //Handle Branch
+        begin
+            O_FetchStall <= 1; //Stall and wait for target address.
+            //Again.. passing something through in case.
+           // O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
+          //  O_PC <= PC;
+			  // PC <= PC + 16'h4;
+            branchwait <= 1;
+        end 
+		  else if(I_DepStallSignal == 1'b1) //Dependency detected..stall
+		  begin
+			//	O_FetchStall <= 1;
+            //Pass same instruction and check for dependency again.
+            //Don't increment PC
+           // O_FetchStall <= 1;
+        end 
+		  else //No branch/dependency (Normal execution)
+        begin
+            O_FetchStall <= 0;
+            O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
+            PC <= PC + 16'h4;
+            O_PC <= PC;
+        end
+   /////////////////////////////////////////////
+   end // if (I_LOCK == 1)
+end // always @(negedge I_CLOCK)    
 
 endmodule // module Fetch

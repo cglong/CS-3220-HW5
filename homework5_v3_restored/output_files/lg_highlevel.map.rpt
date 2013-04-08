@@ -1,5 +1,5 @@
 Analysis & Elaboration report for lg_highlevel
-Mon Apr 08 16:08:27 2013
+Mon Apr 08 18:17:08 2013
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
@@ -13,9 +13,11 @@ Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
   5. Parameter Settings for User Entity Instance: pll:pll0|altpll:altpll_component
   6. altpll Parameter Settings by Entity Instance
   7. Analysis & Elaboration Settings
-  8. Port Connectivity Checks: "Decode:Decode0|SignExtension:SE0"
-  9. Port Connectivity Checks: "pll:pll0"
- 10. Analysis & Elaboration Messages
+  8. Port Connectivity Checks: "Memory:Memory0"
+  9. Port Connectivity Checks: "Decode:Decode0|SignExtension:SE0"
+ 10. Port Connectivity Checks: "Fetch:Fetch0"
+ 11. Port Connectivity Checks: "pll:pll0"
+ 12. Analysis & Elaboration Messages
 
 
 
@@ -41,7 +43,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                ;
 +------------------------------------+------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Mon Apr 08 16:08:27 2013    ;
+; Analysis & Elaboration Status      ; Successful - Mon Apr 08 18:17:08 2013    ;
 ; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
 ; Revision Name                      ; lg_highlevel                             ;
 ; Top-level Entity Name              ; lg_highlevel                             ;
@@ -560,14 +562,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Memory:Memory0"                                                                                                                                     ;
++--------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                                                                               ;
++--------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------+
+; O_BranchAddrSelect ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "O_BranchAddrSelect[1..1]" have no fanouts ;
++--------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "Decode:Decode0|SignExtension:SE0"                                                                                          ;
 +------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                                                                    ;
 +------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
 ; Out  ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (16 bits) it drives; bit(s) "Out[31..16]" have no fanouts ;
-; Out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                        ;
 +------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Fetch:Fetch0"                                                                                                                                                           ;
++--------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port               ; Type  ; Severity ; Details                                                                                                                                                    ;
++--------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; I_BranchAddrSelect ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "I_BranchAddrSelect[1..1]" will be connected to GND. ;
++--------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -585,7 +604,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Elaboration
     Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
-    Info: Processing started: Mon Apr 08 16:08:24 2013
+    Info: Processing started: Mon Apr 08 18:17:06 2013
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lg_highlevel -c lg_highlevel --analysis_and_elaboration
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file seven_segment.v
@@ -668,30 +687,30 @@ Info (12133): Instantiated megafunction "pll:pll0|altpll:altpll_component" with 
     Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
     Info (12134): Parameter "valid_lock_multiplier" = "1"
 Info (12128): Elaborating entity "Fetch" for hierarchy "Fetch:Fetch0"
-Warning (10850): Verilog HDL warning at fetch.v(57): number of words (2) in memory file does not match the number of elements in the address range [0:1023]
+Warning (10850): Verilog HDL warning at fetch.v(57): number of words (3) in memory file does not match the number of elements in the address range [0:1023]
 Warning (10030): Net "InstMem.data_a" at fetch.v(48) has no driver or initial value, using a default initial value '0'
 Warning (10030): Net "InstMem.waddr_a" at fetch.v(48) has no driver or initial value, using a default initial value '0'
 Warning (10030): Net "InstMem.we_a" at fetch.v(48) has no driver or initial value, using a default initial value '0'
 Info (12128): Elaborating entity "Decode" for hierarchy "Decode:Decode0"
 Warning (10036): Verilog HDL or VHDL warning at decode.v(70): object "VRF" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at decode.v(74): object "VRF_VALID" assigned a value but never read
-Warning (10230): Verilog HDL assignment warning at decode.v(211): truncated value with size 16 to match size of target (4)
+Warning (10036): Verilog HDL or VHDL warning at decode.v(86): object "dependency" assigned a value but never read
 Info (12128): Elaborating entity "SignExtension" for hierarchy "Decode:Decode0|SignExtension:SE0"
 Info (12128): Elaborating entity "Execute" for hierarchy "Execute:Execute0"
 Info (12128): Elaborating entity "Memory" for hierarchy "Memory:Memory0"
 Warning (10850): Verilog HDL warning at memory.v(73): number of words (16) in memory file does not match the number of elements in the address range [0:1023]
-Warning (10230): Verilog HDL assignment warning at memory.v(156): truncated value with size 16 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at memory.v(158): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at memory.v(271): truncated value with size 16 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at memory.v(273): truncated value with size 16 to match size of target (8)
 Info (12128): Elaborating entity "SevenSeg" for hierarchy "Memory:Memory0|SevenSeg:sseg0"
 Info (12128): Elaborating entity "Writeback" for hierarchy "Writeback:Writeback0"
-Warning (10230): Verilog HDL assignment warning at writeback.v(60): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at writeback.v(57): truncated value with size 32 to match size of target (4)
 Warning (12011): Net is missing source, defaulting to GND
     Warning (12110): Net "test_clock" is missing source, defaulting to GND
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info: Quartus II 32-bit Analysis & Elaboration was successful. 0 errors, 16 warnings
     Info: Peak virtual memory: 353 megabytes
-    Info: Processing ended: Mon Apr 08 16:08:27 2013
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Processing ended: Mon Apr 08 18:17:08 2013
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 

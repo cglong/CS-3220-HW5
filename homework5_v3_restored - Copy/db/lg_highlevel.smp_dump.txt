@@ -1,0 +1,11 @@
+
+State Machine - |lg_highlevel|Decode:Decode0|ConditionalCode
+Name ConditionalCode.111 ConditionalCode.110 ConditionalCode.101 ConditionalCode.100 ConditionalCode.011 ConditionalCode.010 ConditionalCode.001 ConditionalCode.000 
+ConditionalCode.000 0 0 0 0 0 0 0 0 
+ConditionalCode.001 0 0 0 0 0 0 1 1 
+ConditionalCode.010 0 0 0 0 0 1 0 1 
+ConditionalCode.011 0 0 0 0 1 0 0 1 
+ConditionalCode.100 0 0 0 1 0 0 0 1 
+ConditionalCode.101 0 0 1 0 0 0 0 1 
+ConditionalCode.110 0 1 0 0 0 0 0 1 
+ConditionalCode.111 1 0 0 0 0 0 0 1 
