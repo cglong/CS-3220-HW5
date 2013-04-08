@@ -64,36 +64,48 @@ output reg O_DepStall;
 always @(negedge I_CLOCK)
 begin
   O_LOCK <= I_LOCK;
-  O_FetchStall <= I_FetchStall;
-
-  if (I_LOCK == 1'b1) 
+  
+  if(I_LOCK == 1'b1) 
   begin
-    /////////////////////////////////////////////
-    // TODO: Complete here 
-    /////////////////////////////////////////////
-	 
-	 if (I_Opcode == `OP_ADD_D)  O_ALUOut <= I_Src1Value + I_Src2Value;
-	 if (I_Opcode == `OP_ADDI_D) O_ALUOut <= I_Src1Value + I_Imm;
-	 if (I_Opcode == `OP_AND_D)  O_ALUOut <= I_Src1Value & I_Src2Value;
-	 if (I_Opcode == `OP_ANDI_D) O_ALUOut <= I_Src1Value & I_Imm;
-	 if (I_Opcode == `OP_MOV)    O_ALUOut <= I_Src2Value;
-	 if (I_Opcode == `OP_MOVI_D) O_ALUOut <= I_Imm;
-	 if (I_Opcode == `OP_BRN)    O_ALUOut <= I_PC + I_Imm << 2;
-	 if (I_Opcode == `OP_BRP)    O_ALUOut <= I_PC + I_Imm << 2;
-	 if (I_Opcode == `OP_BRNZ)   O_ALUOut <= I_PC + I_Imm << 2;
-	 if (I_Opcode == `OP_BRNP)   O_ALUOut <= I_PC + I_Imm << 2;
-	 if (I_Opcode == `OP_BRNZP)  O_ALUOut <= I_PC + I_Imm << 2;
-	 if (I_Opcode == `OP_BRZP)   O_ALUOut <= I_PC + I_Imm << 2;
-	 if (I_Opcode == `OP_BRZ)    O_ALUOut <= I_PC + I_Imm << 2;
-	 if (I_Opcode == `OP_JSR)    O_ALUOut <= I_PC + I_Imm << 2;
-	 if (I_Opcode == `OP_LDW)    O_ALUOut <= I_Src1Value + I_Imm;
-	 if (I_Opcode == `OP_STW)    O_ALUOut <= I_Src1Value + I_Imm;
-	 
-	 O_DestValue <= I_DestValue;
-	 O_Opcode <= I_Opcode;
-	 O_DestRegIdx <= I_DestRegIdx;
-	 O_DepStall <= I_DepStall;
-	 
+	  O_FetchStall <= I_FetchStall;
+	  O_DepStall <= I_DepStall;
+	  if(I_DepStall || I_FetchStall)
+	  begin
+	  end
+	  else
+	  begin
+	  O_DestRegIdx <= I_DestRegIdx;
+	  O_DestValue <= I_DestValue;
+	  O_Opcode <= I_Opcode;
+		case(I_Opcode)
+			`OP_ADD_D: O_ALUOut <= I_Src1Value + I_Src2Value;
+			`OP_ADDI_D: O_ALUOut <= I_Src1Value + I_Imm;
+			`OP_AND_D: O_ALUOut <= I_Src1Value & I_Src2Value;
+			`OP_ANDI_D: O_ALUOut <= I_Src1Value & I_Imm;
+			`OP_MOV: O_ALUOut <= I_Src2Value;
+			`OP_MOVI_D: O_ALUOut <= I_Imm;
+			`OP_LDW: O_ALUOut <= I_Src1Value + I_Imm;
+			`OP_STW: O_ALUOut <= I_Src1Value + I_Imm;
+			`OP_BRN: O_ALUOut <=   I_PC + (I_Imm<<2) + 16'h4;
+			`OP_BRZ: O_ALUOut <=   I_PC + (I_Imm<<2) + 16'h4;
+			`OP_BRP: O_ALUOut <=   I_PC + (I_Imm<<2) + 16'h4;
+			`OP_BRNZ: O_ALUOut <=  I_PC + (I_Imm<<2) + 16'h4;
+			`OP_BRNP: O_ALUOut <=  I_PC + (I_Imm<<2) + 16'h4;
+			`OP_BRZP: O_ALUOut <=  I_PC + (I_Imm<<2) + 16'h4;
+			`OP_BRNZP: O_ALUOut <= I_PC + (I_Imm<<2) + 16'h4;
+			`OP_JMP: O_ALUOut <= I_Src1Value;
+			`OP_JSR: 
+			 begin
+				O_DestValue <= (I_PC + 16'h4);
+				O_ALUOut <= I_PC + (I_Imm<<2) + 16'h4;	
+			 end
+			`OP_JSRR: 
+			 begin
+				O_DestValue <= (I_PC + 16'h4);
+				O_ALUOut <= I_PC + (I_Src1Value<<2) + 16'h4;
+			 end
+		 endcase
+	  end
   end // if (I_LOCK == 1'b1)
 end // always @(negedge I_CLOCK)
 
