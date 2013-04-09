@@ -96,7 +96,7 @@
 #         Region: /lg_highlevel/pll0
 # ** Warning: (vsim-3722) C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v(49): [TFMPC] - Missing connection for port 'areset'.
 # 
-# ** Warning: (vsim-3015) C:/wamp/www/CS-3220-HW5/homework5_v3_restored/decode.v(231): [PCDPC] - Port size (32 or 32) does not match connection size (16) for port 'Out'. The port definition is at: C:/wamp/www/CS-3220-HW5/homework5_v3_restored/sign_extension.v(3).
+# ** Warning: (vsim-3015) C:/wamp/www/CS-3220-HW5/homework5_v3_restored/decode.v(383): [PCDPC] - Port size (32 or 32) does not match connection size (16) for port 'Out'. The port definition is at: C:/wamp/www/CS-3220-HW5/homework5_v3_restored/sign_extension.v(3).
 # 
 #         Region: /lg_highlevel/Decode0/SE0
 # 
@@ -124,30 +124,15 @@
 # run -all
 #  Note : Cyclone II PLL is enabled
 # Time: 0  Instance: lg_highlevel.pll0.altpll_component.stratixii_pll.pll1
-#  Note : Cyclone II PLL locked to incoming clock
-# Time: 200000  Instance: lg_highlevel.pll0.altpll_component.stratixii_pll.pll1
-# ** Note: $finish    : C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v(29)
-#    Time: 10 us  Iteration: 0  Instance: /lg_highlevel
-# 1
-# Break in Module lg_highlevel at C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v line 29
-# Simulation Breakpoint: 1
-# Break in Module lg_highlevel at C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v line 29
-# MACRO C:\wamp\www\CS-3220-HW5\homework5_v3_restored\simulation\modelsim\my_custom_view.do PAUSED at line 2
 restart -f
 # ** Warning: (vsim-3017) C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v(49): [TFMPC] - Too few port connections. Expected 4, found 3.
 # 
 #         Region: /lg_highlevel/pll0
 # ** Warning: (vsim-3722) C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v(49): [TFMPC] - Missing connection for port 'areset'.
 # 
-# ** Warning: (vsim-3015) C:/wamp/www/CS-3220-HW5/homework5_v3_restored/decode.v(231): [PCDPC] - Port size (32 or 32) does not match connection size (16) for port 'Out'. The port definition is at: C:/wamp/www/CS-3220-HW5/homework5_v3_restored/sign_extension.v(3).
+# ** Warning: (vsim-3015) C:/wamp/www/CS-3220-HW5/homework5_v3_restored/decode.v(383): [PCDPC] - Port size (32 or 32) does not match connection size (16) for port 'Out'. The port definition is at: C:/wamp/www/CS-3220-HW5/homework5_v3_restored/sign_extension.v(3).
 # 
 #         Region: /lg_highlevel/Decode0/SE0
 run -all
 #  Note : Cyclone II PLL is enabled
 # Time: 0  Instance: lg_highlevel.pll0.altpll_component.stratixii_pll.pll1
-#  Note : Cyclone II PLL locked to incoming clock
-# Time: 200000  Instance: lg_highlevel.pll0.altpll_component.stratixii_pll.pll1
-# ** Note: $finish    : C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v(29)
-#    Time: 10 us  Iteration: 0  Instance: /lg_highlevel
-# 1
-# Break in Module lg_highlevel at C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v line 29

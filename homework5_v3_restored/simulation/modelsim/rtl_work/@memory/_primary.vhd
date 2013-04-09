@@ -16,7 +16,7 @@ entity Memory is
         O_MemOut        : out    vl_logic_vector(15 downto 0);
         O_DestRegIdx    : out    vl_logic_vector(3 downto 0);
         O_BranchPC      : out    vl_logic_vector(15 downto 0);
-        O_BranchAddrSelect: out    vl_logic;
+        O_BranchAddrSelect: out    vl_logic_vector(1 downto 0);
         O_FetchStall    : out    vl_logic;
         O_DepStall      : out    vl_logic;
         O_LEDR          : out    vl_logic_vector(9 downto 0);

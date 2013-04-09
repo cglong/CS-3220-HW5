@@ -94,134 +94,120 @@ begin
     /////////////////////////////////////////////
     // TODO: Complete here 
     /////////////////////////////////////////////
-	 if(I_FetchStall || I_DepStall)
-	 begin 
-	 end
-	 else
-	 begin
-	 O_ALUOut <= I_ALUOut;
-	 O_Opcode <= I_Opcode;
-	 O_DestRegIdx <= I_DestRegIdx;
 	 
-	 //Branch Select Logic
-	 //I am not sure how the Condition code works, does this stae know anything about it or what
+	 //no-op for fetch stall, dependency stall
+	 if(I_FetchStall || I_DepStall) begin end
+	 
+	 else
+		begin
 
-		case(I_Opcode)
-			`OP_LDW:
+		O_Opcode <= I_Opcode;
+		O_DestRegIdx <= I_DestRegIdx;
+		O_ALUOut <= I_ALUOut;
+	 
+		if (I_Opcode == `OP_LDW) O_MemOut <= (DataMem[I_ALUOut]);
+		else if (I_Opcode == `OP_STW) DataMem[I_ALUOut] <= I_DestValue;	
+		else if (I_Opcode == `OP_BRN) begin
+			if (I_DestValue[2:0] == 3'b100)
 				begin
-					O_MemOut <= (DataMem[I_ALUOut]);
+				O_BranchAddrSelect <= 1'b1;
 				end
-			`OP_STW:  //Test this later..
+				else
 				begin
-					DataMem[I_ALUOut] <= I_DestValue;
+					O_BranchAddrSelect <= 1'b0;
 				end
-			`OP_BRN: 
+				O_BranchPC <= I_ALUOut;
+		end
+		
+		else if (I_Opcode == `OP_BRP) begin
+			if (I_DestValue[2:0] == 3'b001)
 				begin
-					if(I_DestValue[2:0] == 3'b100)
-					begin
-						O_BranchAddrSelect <= 1'b1;
-					end
-					else
-					begin
-						O_BranchAddrSelect <= 1'b0;
-					end
-					O_BranchPC <= I_ALUOut;
+				O_BranchAddrSelect <= 1'b1;
 				end
-			`OP_BRZ: 
+				else
 				begin
-					if(I_DestValue[2:0] == 3'b010)
-					begin
-						O_BranchAddrSelect <= 1'b1;
-					end
-					else
-					begin
-						O_BranchAddrSelect <= 1'b0;
-					end
-					O_BranchPC <= I_ALUOut;
+					O_BranchAddrSelect <= 1'b0;
 				end
-			`OP_BRP: 
+				O_BranchPC <= I_ALUOut;
+		end
+		
+		else if (I_Opcode == `OP_BRZ) begin
+			if (I_DestValue[2:0] == 3'b010)
 				begin
-					if(I_DestValue[2:0] == 3'b001)
-					begin
-						O_BranchAddrSelect <= 1'b1;
-					end
-					else
-					begin
-						O_BranchAddrSelect <= 1'b0;
-					end
-					O_BranchPC <= I_ALUOut;
+				O_BranchAddrSelect <= 1'b1;
 				end
-			`OP_BRNZ: 
+				else
 				begin
-					if(I_DestValue[2:0] == 3'b100 || I_DestValue[2:0] == 3'b010)
-					begin
-						O_BranchAddrSelect <= 1'b1;
-					end
-					else
-					begin
-						O_BranchAddrSelect <= 1'b0;
-					end
-					O_BranchPC <= I_ALUOut;
+					O_BranchAddrSelect <= 1'b0;
 				end
-			`OP_BRNP: 
+				O_BranchPC <= I_ALUOut;
+		end	
+		
+		else if (I_Opcode == `OP_BRNZ) begin
+			if(I_DestValue[2:0] == 3'b100 || I_DestValue[2:0] == 3'b010)
 				begin
-					if(I_DestValue[2:0] == 3'b100 || I_DestValue[2:0] == 3'b001)
-					begin
-						O_BranchAddrSelect <= 1'b1;
-					end
-					else
-					begin
-						O_BranchAddrSelect <= 1'b0;
-					end
-					O_BranchPC <= I_ALUOut;
+				O_BranchAddrSelect <= 1'b1;
 				end
-			`OP_BRZP: 
+				else
 				begin
-					if(I_DestValue[2:0] == 3'b010 || I_DestValue[2:0] == 3'b001)
-					begin
-						O_BranchAddrSelect <= 1'b1;
-					end
-					else
-					begin
-						O_BranchAddrSelect <= 1'b0;
-					end
-					O_BranchPC <= I_ALUOut;
-				end	
-			`OP_BRNZP: 
+					O_BranchAddrSelect <= 1'b0;
+				end
+				O_BranchPC <= I_ALUOut;
+		end
+		
+		else if (I_Opcode == `OP_BRNP) begin
+			if (I_DestValue[2:0] == 3'b100 || I_DestValue[2:0] == 3'b001)
 				begin
-					if(I_DestValue[2:0] == 3'b100 || I_DestValue[2:0] == 3'b010 || I_DestValue[2:0] == 3'b001)
-					begin
-						O_BranchAddrSelect <= 1'b1;
-					end
-					else
-					begin
-						O_BranchAddrSelect <= 1'b0;
-					end
-					O_BranchPC <= I_ALUOut;
-				end	
-			`OP_JMP: 
+				O_BranchAddrSelect <= 1'b1;
+				end
+				else
 				begin
-					O_BranchAddrSelect <= 1'b1;
-					O_BranchPC <= I_ALUOut;
-				end	
-			/**`OP_RET: 
+					O_BranchAddrSelect <= 1'b0;
+				end
+				O_BranchPC <= I_ALUOut;
+		end
+		
+		else if (I_Opcode == `OP_BRZP) begin
+			if (I_DestValue[2:0] == 3'b010 || I_DestValue[2:0] == 3'b001)
 				begin
-					O_BranchAddrSelect <= 1'b1;
-					O_BranchPC <= I_ALUOut;
-				end	**/
-			`OP_JSR: 
+				O_BranchAddrSelect <= 1'b1;
+				end
+				else
 				begin
-					O_BranchAddrSelect <= 1'b1;
-					O_BranchPC <= I_ALUOut;
-					O_ALUOut <= I_DestValue;
-				end	
-			`OP_JSRR: 
+					O_BranchAddrSelect <= 1'b0;
+				end
+				O_BranchPC <= I_ALUOut;
+		end	
+		
+		else if (I_Opcode == `OP_BRNZP) begin
+			if (I_DestValue[2:0] == 3'b100 || I_DestValue[2:0] == 3'b010 || I_DestValue[2:0] == 3'b001)
 				begin
-					O_BranchAddrSelect <= 1'b1;
-					O_BranchPC <= I_ALUOut;
-					O_ALUOut <= I_DestValue;
-				end	
-		endcase
+				O_BranchAddrSelect <= 1'b1;
+				end
+				else
+				begin
+					O_BranchAddrSelect <= 1'b0;
+				end
+				O_BranchPC <= I_ALUOut;
+		end
+		
+		else if (I_Opcode == `OP_JMP) begin
+			O_BranchAddrSelect <= 1'b1;
+			O_BranchPC <= I_ALUOut;
+		end
+		
+		else if (I_Opcode == `OP_JSR) begin
+			O_BranchAddrSelect <= 1'b1;
+			O_BranchPC <= I_ALUOut;
+			O_ALUOut <= I_DestValue;
+		end
+		
+		if (I_Opcode == `OP_JSRR) begin
+			O_BranchAddrSelect <= 1'b1;
+			O_BranchPC <= I_ALUOut;
+			O_ALUOut <= I_DestValue;
+		end
+		
 	end
   end 
 
@@ -243,12 +229,6 @@ end // always @(negedge I_CLOCK)
 /////////////////////////////////////////
 // Create and connect HEX register 
 reg [15:0] HexOut;
-/*
-SevenSeg sseg0(.OUT(O_HEX3), .IN(HexOut[15:12]));
-SevenSeg sseg1(.OUT(O_HEX2), .IN(HexOut[11:8]));
-SevenSeg sseg2(.OUT(O_HEX1), .IN(HexOut[7:4]));
-SevenSeg sseg3(.OUT(O_HEX0), .IN(HexOut[3:0]));
-*/
  
 // Create and connect LEDR, LEDG registers 
 reg [9:0] LedROut;
@@ -275,6 +255,7 @@ begin
 		end // if ((I_FetchStall == 1'b0) && (I_DepStall == 1'b0)) begin
 	end // if (I_LOCK == 0) begin
 end // always @(negedge I_CLOCK)
+
 SevenSeg sseg0(.OUT(O_HEX3), .IN(HexOut[15:12]));
 SevenSeg sseg1(.OUT(O_HEX2), .IN(HexOut[11:8]));
 SevenSeg sseg2(.OUT(O_HEX1), .IN(HexOut[7:4]));

@@ -5,7 +5,7 @@
 module lg_highlevel(
   CLOCK_27, 
   CLOCK_50,
-  LEDR, LEDG,
+  LEDR, LEDG, 
   HEX0, HEX1, HEX2, HEX3 
 );
 
@@ -13,8 +13,8 @@ module lg_highlevel(
 // INPUT/OUTPUT DEFINITION GOES HERE
 ////////////////////////////////////
 //
-input	 [1:0] CLOCK_27;
-input	 CLOCK_50;
+input [1:0] CLOCK_27;
+input CLOCK_50;
 output [9:0] LEDR;
 output [7:0] LEDG;
 output [6:0] HEX0, HEX1, HEX2, HEX3;
@@ -23,6 +23,7 @@ output [6:0] HEX0, HEX1, HEX2, HEX3;
 // TESTBENCH SIGNAL DECLARATION GOES HERE
 /////////////////////////////////////////
 //
+/**
 reg test_clock;
 initial begin
   test_clock = 1;
@@ -31,7 +32,7 @@ end
 
 always begin 
   #20 test_clock = ~test_clock;
-end
+end  **/
 
 /////////////////////////////////////////
 // WIRE/REGISTER DECLARATION GOES HERE
@@ -42,14 +43,13 @@ wire pll_c0;
 wire pll_locked;
 
 pll pll0(
-//  .inclk0 ( CLOCK_50 ),
-.inclk0 ( test_clock ),
+  .inclk0 ( CLOCK_50 ),
   .c0     ( pll_c0 ),
   .locked ( pll_locked )
 );
 
 reg clk; // 1 Hz
-
+ 
 reg [31:0] counter;
 always @(posedge pll_c0) begin
   if (pll_locked == 0) begin
@@ -57,20 +57,22 @@ always @(posedge pll_c0) begin
     clk <= 0;
   end else begin 
     counter <= counter + 1;
- //   if (counter == 32'd10000000) begin
- if (counter == 32'd00000001) begin
+    if (counter == 32'd500000) begin
+	 //if (counter == 32'd1) begin
       counter <= 0;
       clk <= ~clk;
     end
   end
 end
 
+
+
 wire LOCK_FD;
 wire [`PC_WIDTH-1:0] PC_FD;
 wire [`IR_WIDTH-1:0] IR_FD;
 
 wire [`PC_WIDTH-1:0] BranchPC_FM;
-wire BranchAddrSelect_FM;
+wire [1:0] BranchAddrSelect_FM;
 wire DepStallSignal_FD;
 wire BranchStallSignal_FD;
 wire FetchStall_FD;
@@ -90,16 +92,16 @@ Fetch Fetch0(
 
 wire WritebackEnable_WD;
 wire [3:0] WriteBackRegIdx_WD;
-wire [`REG_WIDTH-1:0] WritebackData_WD;
+wire signed [`REG_WIDTH-1:0] WritebackData_WD;
 
 wire LOCK_DE;
 wire [`PC_WIDTH-1:0] PC_DE;
 wire [`OPCODE_WIDTH-1:0] Opcode_DE;
-wire [`REG_WIDTH-1:0] Src1Value_DE;
-wire [`REG_WIDTH-1:0] Src2Value_DE;
+wire signed [`REG_WIDTH-1:0] Src1Value_DE;
+wire signed [`REG_WIDTH-1:0] Src2Value_DE;
 wire [3:0] DestRegIdx_DE;
 wire [`REG_WIDTH-1:0] DestValue_DE;
-wire [`REG_WIDTH-1:0] Imm_DE;
+wire signed [`REG_WIDTH-1:0] Imm_DE;
 wire FetchStall_DE;
 wire DepStall_DE;
 
@@ -127,10 +129,10 @@ Decode Decode0(
 );
 
 wire LOCK_EM;
-wire [`REG_WIDTH-1:0] ALUOut_EM;
+wire signed [`REG_WIDTH-1:0] ALUOut_EM;
 wire [`OPCODE_WIDTH-1:0] Opcode_EM;
 wire [3:0] DestRegIdx_EM;
-wire [`REG_WIDTH-1:0] DestValue_EM;
+wire signed [`REG_WIDTH-1:0] DestValue_EM;
 wire FetchStall_EM;
 wire DepStall_EM;
 
@@ -156,9 +158,9 @@ Execute Execute0(
 );
 
 wire LOCK_MW;
-wire [`REG_WIDTH-1:0] ALUOut_MW;
+wire signed [`REG_WIDTH-1:0] ALUOut_MW;
 wire [`OPCODE_WIDTH-1:0] Opcode_MW;
-wire [`REG_WIDTH-1:0] MemOut_MW;
+wire signed [`REG_WIDTH-1:0] MemOut_MW;
 wire [3:0] DestRegIdx_MW;
 wire FetchStall_MW;
 wire DepStall_MW;

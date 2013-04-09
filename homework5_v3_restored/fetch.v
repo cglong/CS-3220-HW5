@@ -54,7 +54,7 @@ reg branchwait;
 //
 initial 
 begin
-  $readmemh("grading_asm.hex", InstMem);
+  $readmemh("test1.hex", InstMem);
   PC = 16'h0;
   branchwait = 0;
   O_LOCK = 1'b0;
