@@ -83,57 +83,35 @@ begin
    end 
 	else // if (I_LOCK == 0)
    begin
-        /////////////////////////////////////////////
+       /////////////////////////////////////////////
        // TODO: Complete here
-       
-		  if(I_BranchAddrSelect == 1 && branchwait == 1)//Target address resolved.. Branch.
-        begin
-            O_FetchStall <= 0;
-            PC <= I_BranchPC;
-            O_IR <= InstMem[I_BranchPC[`PC_WIDTH-1:2]];
-            O_PC <= I_BranchPC;
-				
-            branchwait <= 0;
-        end 
-		  else if(I_BranchAddrSelect == 0 && branchwait == 1) //branch address still needs to be resolved
-        begin
-            O_FetchStall <= 0;
-            O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
-				PC <= PC + 16'h4;
-            O_PC <= PC;
-				branchwait <= 0;
-        end 
-		  else if(branchwait == 1) //branch address still needs to be resolved
-        begin
-            O_FetchStall <= 1; //Stall and wait for target address.
-            //Again.. passing something through in case.
-            //O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
-            //O_PC <= PC;
-        end 
-		  else if(I_BranchStallSignal == 1'b1) //Handle Branch
-        begin
-            O_FetchStall <= 1; //Stall and wait for target address.
-            //Again.. passing something through in case.
-           // O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
-          //  O_PC <= PC;
-			  // PC <= PC + 16'h4;
-            branchwait <= 1;
-        end 
-		  else if(I_DepStallSignal == 1'b1) //Dependency detected..stall
-		  begin
-			//	O_FetchStall <= 1;
-            //Pass same instruction and check for dependency again.
-            //Don't increment PC
-           // O_FetchStall <= 1;
-        end 
-		  else //No branch/dependency (Normal execution)
-        begin
-            O_FetchStall <= 0;
-            O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
-            PC <= PC + 16'h4;
-            O_PC <= PC;
-        end
-   /////////////////////////////////////////////
+		 /////////////////////////////////////////////
+		 if (I_BranchAddrSelect == 0 && branchwait == 1) begin
+           O_FetchStall <= 0;
+			  PC <= PC + 16'h4;
+           O_PC <= PC;
+			  O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
+			  branchwait <= 0;
+       end 
+		 else if (I_BranchAddrSelect == 1 && branchwait == 1) begin
+           O_FetchStall <= 0;
+           PC <= I_BranchPC;
+           O_PC <= I_BranchPC;
+			  O_IR <= InstMem[I_BranchPC[`PC_WIDTH-1:2]];
+           branchwait <= 0;
+       end 
+		 else if (branchwait == 1)
+           O_FetchStall <= 1;
+		 else if (I_BranchStallSignal == 1) begin
+           O_FetchStall <= 1;
+           branchwait <= 1;
+       end 
+		 else if (I_DepStallSignal != 1) begin
+           O_FetchStall <= 0;
+           PC <= PC + 16'h4;
+           O_PC <= PC;
+			  O_IR <= InstMem[PC[`PC_WIDTH-1:2]];
+       end
    end // if (I_LOCK == 1)
 end // always @(negedge I_CLOCK)    
 
