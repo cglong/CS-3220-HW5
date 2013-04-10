@@ -1,4 +1,5 @@
 vendor_name = ModelSim
+<<<<<<< HEAD
 source_file = 1, C:/wamp/www/CS-3220-HW5/homework5_v3_restored/seven_segment.v
 source_file = 1, C:/wamp/www/CS-3220-HW5/homework5_v3_restored/writeback.v
 source_file = 1, C:/wamp/www/CS-3220-HW5/homework5_v3_restored/memory.v
@@ -28,6 +29,37 @@ source_file = 1, c:/altera/12.1/quartus/libraries/megafunctions/altrom.inc
 source_file = 1, c:/altera/12.1/quartus/libraries/megafunctions/altram.inc
 source_file = 1, c:/altera/12.1/quartus/libraries/megafunctions/altdpram.inc
 source_file = 1, C:/wamp/www/CS-3220-HW5/homework5_v3_restored/db/altsyncram_8rc1.tdf
+=======
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/seven_segment.v
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/writeback.v
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/memory.v
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/execute.v
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/sign_extension.v
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/decode.v
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/lg_highlevel.v
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/global_def.h
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/fetch.v
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/pll.qip
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/pll.v
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/db/lg_highlevel.cbx.xml
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/data.hex
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/test1.hex
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/altpll.tdf
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/aglobal121.inc
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/stratix_pll.inc
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/stratixii_pll.inc
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/cycloneii_pll.inc
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/cbx.lst
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/altsyncram.tdf
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/stratix_ram_block.inc
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/lpm_mux.inc
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/lpm_decode.inc
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/a_rdenreg.inc
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/altrom.inc
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/altram.inc
+source_file = 1, c:/program files/altera/12.1/quartus/libraries/megafunctions/altdpram.inc
+source_file = 1, C:/Users/Chris/Documents/Homework/3220/5/homework5_v3_restored/db/altsyncram_8rc1.tdf
+>>>>>>> a9694e94cb7f2f6d6ba809314d8dc98d97e6f589
 design_name = lg_highlevel
 instance = comp, \CLOCK_27[0]~I , CLOCK_27[0], lg_highlevel, 1
 instance = comp, \CLOCK_27[1]~I , CLOCK_27[1], lg_highlevel, 1
