@@ -1,5 +1,5 @@
-Analysis & Elaboration report for lg_highlevel
-Tue Apr 09 17:05:54 2013
+Analysis & Synthesis report for lg_highlevel
+Tue Apr 09 17:17:30 2013
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
@@ -7,15 +7,32 @@ Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration IP Cores Summary
-  5. Parameter Settings for User Entity Instance: pll:pll0|altpll:altpll_component
-  6. altpll Parameter Settings by Entity Instance
-  7. Analysis & Elaboration Settings
-  8. Port Connectivity Checks: "Decode:Decode0|SignExtension:SE0"
-  9. Port Connectivity Checks: "pll:pll0"
- 10. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. State Machine - |lg_highlevel|Decode:Decode0|ConditionalCode
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Registers Packed Into Inferred Megafunctions
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated
+ 16. Source assignments for Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated
+ 17. Source assignments for Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated
+ 18. Parameter Settings for User Entity Instance: pll:pll0|altpll:altpll_component
+ 19. Parameter Settings for Inferred Entity Instance: Decode:Decode0|altsyncram:RF_rtl_0
+ 20. Parameter Settings for Inferred Entity Instance: Decode:Decode0|altsyncram:RF_rtl_1
+ 21. Parameter Settings for Inferred Entity Instance: Decode:Decode0|altsyncram:RF_rtl_2
+ 22. altpll Parameter Settings by Entity Instance
+ 23. altsyncram Parameter Settings by Entity Instance
+ 24. Port Connectivity Checks: "Decode:Decode0|SignExtension:SE0"
+ 25. Port Connectivity Checks: "pll:pll0"
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -39,23 +56,108 @@ applicable agreement for further details.
 
 
 +-------------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                                ;
+; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Tue Apr 09 17:05:54 2013    ;
+; Analysis & Synthesis Status        ; Successful - Tue Apr 09 17:17:30 2013    ;
 ; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
 ; Revision Name                      ; lg_highlevel                             ;
 ; Top-level Entity Name              ; lg_highlevel                             ;
 ; Family                             ; Cyclone II                               ;
-; Total logic elements               ; N/A until Partition Merge                ;
-;     Total combinational functions  ; N/A until Partition Merge                ;
-;     Dedicated logic registers      ; N/A until Partition Merge                ;
-; Total registers                    ; N/A until Partition Merge                ;
-; Total pins                         ; N/A until Partition Merge                ;
-; Total virtual pins                 ; N/A until Partition Merge                ;
-; Total memory bits                  ; N/A until Partition Merge                ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                ;
-; Total PLLs                         ; N/A until Partition Merge                ;
+; Total logic elements               ; 0                                        ;
+;     Total combinational functions  ; 0                                        ;
+;     Dedicated logic registers      ; 0                                        ;
+; Total registers                    ; 0                                        ;
+; Total pins                         ; 49                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
 +------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                      ; lg_highlevel       ; lg_highlevel       ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
 
 
 +------------------------------------------+
@@ -75,13 +177,480 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                            ;
++----------------------------------+-----------------+---------------------------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                                   ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+---------------------------------------------+----------------------------------------------------------------------+---------+
+; seven_segment.v                  ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/seven_segment.v        ;         ;
+; writeback.v                      ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/writeback.v            ;         ;
+; memory.v                         ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/memory.v               ;         ;
+; execute.v                        ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/execute.v              ;         ;
+; sign_extension.v                 ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/sign_extension.v       ;         ;
+; decode.v                         ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/decode.v               ;         ;
+; lg_highlevel.v                   ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/lg_highlevel.v         ;         ;
+; global_def.h                     ; yes             ; User Unspecified File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/global_def.h           ;         ;
+; fetch.v                          ; yes             ; User Verilog HDL File                       ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/fetch.v                ;         ;
+; pll.v                            ; yes             ; User Wizard-Generated File                  ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/pll.v                  ;         ;
+; data.hex                         ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/data.hex               ;         ;
+; test1.hex                        ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/test1.hex              ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/altpll.tdf            ;         ;
+; aglobal121.inc                   ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/aglobal121.inc        ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                                ; c:/altera/12.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_8rc1.tdf           ; yes             ; Auto-Generated Megafunction                 ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/db/altsyncram_8rc1.tdf ;         ;
++----------------------------------+-----------------+---------------------------------------------+----------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 49    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
++---------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |lg_highlevel              ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 49   ; 0            ; |lg_highlevel       ;              ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
 +----------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration IP Cores Summary                                                                                                      ;
+; Analysis & Synthesis IP Cores Summary                                                                                                        ;
 +--------+--------------+---------+--------------+--------------+------------------------+-----------------------------------------------------+
 ; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance        ; IP Include File                                     ;
 +--------+--------------+---------+--------------+--------------+------------------------+-----------------------------------------------------+
 ; Altera ; ALTPLL       ; 12.1    ; N/A          ; N/A          ; |lg_highlevel|pll:pll0 ; C:/wamp/www/CS-3220-HW5/homework5_v3_restored/pll.v ;
 +--------+--------------+---------+--------------+--------------+------------------------+-----------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |lg_highlevel|Decode:Decode0|ConditionalCode                                                                                                                                        ;
++---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+; Name                ; ConditionalCode.111 ; ConditionalCode.110 ; ConditionalCode.101 ; ConditionalCode.100 ; ConditionalCode.011 ; ConditionalCode.010 ; ConditionalCode.001 ; ConditionalCode.000 ;
++---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+; ConditionalCode.000 ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ;
+; ConditionalCode.001 ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 1                   ;
+; ConditionalCode.010 ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 1                   ;
+; ConditionalCode.011 ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 1                   ;
+; ConditionalCode.100 ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; ConditionalCode.101 ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; ConditionalCode.110 ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; ConditionalCode.111 ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
++---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; Fetch:Fetch0|O_IR[2,4..15,18..20,22,23] ; Stuck at GND due to stuck port data_in      ;
+; Decode:Decode0|RF_VALID[4..15]          ; Lost fanout                                 ;
+; Decode:Decode0|O_Imm[2,4..15]           ; Stuck at GND due to stuck port data_in      ;
+; Decode:Decode0|O_DestRegIdx[2,3]        ; Stuck at GND due to stuck port data_in      ;
+; Execute:Execute0|O_DestRegIdx[2,3]      ; Stuck at GND due to stuck port data_in      ;
+; Memory:Memory0|O_DestRegIdx[2,3]        ; Stuck at GND due to stuck port data_in      ;
+; Fetch:Fetch0|O_IR[31]                   ; Merged with Fetch:Fetch0|O_IR[30]           ;
+; Fetch:Fetch0|O_IR[30]                   ; Merged with Fetch:Fetch0|O_IR[29]           ;
+; Fetch:Fetch0|O_IR[29]                   ; Merged with Fetch:Fetch0|O_IR[27]           ;
+; Fetch:Fetch0|O_IR[27]                   ; Merged with Fetch:Fetch0|O_IR[26]           ;
+; Fetch:Fetch0|O_IR[26]                   ; Merged with Fetch:Fetch0|O_IR[25]           ;
+; Fetch:Fetch0|O_IR[17]                   ; Merged with Fetch:Fetch0|O_IR[21]           ;
+; Decode:Decode0|O_Opcode[2,3,5..7]       ; Merged with Decode:Decode0|O_Opcode[1]      ;
+; Execute:Execute0|O_Opcode[2,3,5..7]     ; Merged with Execute:Execute0|O_Opcode[1]    ;
+; Memory:Memory0|O_Opcode[1,2,5..7]       ; Merged with Memory:Memory0|O_Opcode[3]      ;
+; Memory:Memory0|O_MemOut[0..15]          ; Stuck at GND due to stuck port clock_enable ;
+; Memory:Memory0|O_BranchAddrSelect[0]    ; Stuck at GND due to stuck port data_in      ;
+; Memory:Memory0|O_BranchPC[2..15]        ; Lost fanout                                 ;
+; Fetch:Fetch0|branchwait                 ; Stuck at GND due to stuck port data_in      ;
+; Memory:Memory0|O_BranchAddrSelect[1]    ; Lost fanout                                 ;
+; Fetch:Fetch0|O_FetchStall               ; Stuck at GND due to stuck port data_in      ;
+; Decode:Decode0|O_FetchStall             ; Stuck at GND due to stuck port data_in      ;
+; Execute:Execute0|O_FetchStall           ; Stuck at GND due to stuck port data_in      ;
+; Memory:Memory0|O_FetchStall             ; Stuck at GND due to stuck port data_in      ;
+; Decode:Decode0|counter[0..3]            ; Lost fanout                                 ;
+; Decode:Decode0|ConditionalCode~10       ; Lost fanout                                 ;
+; Decode:Decode0|ConditionalCode~11       ; Lost fanout                                 ;
+; Decode:Decode0|ConditionalCode~12       ; Lost fanout                                 ;
+; Decode:Decode0|ConditionalCode.000      ; Lost fanout                                 ;
+; Decode:Decode0|ConditionalCode.001      ; Lost fanout                                 ;
+; Decode:Decode0|ConditionalCode.010      ; Lost fanout                                 ;
+; Decode:Decode0|ConditionalCode.011      ; Lost fanout                                 ;
+; Decode:Decode0|ConditionalCode.100      ; Lost fanout                                 ;
+; Decode:Decode0|ConditionalCode.101      ; Lost fanout                                 ;
+; Decode:Decode0|ConditionalCode.110      ; Lost fanout                                 ;
+; Decode:Decode0|ConditionalCode.111      ; Lost fanout                                 ;
+; Memory:Memory0|LedROut[0..7,9]          ; Stuck at VCC due to stuck port data_in      ;
+; Memory:Memory0|LedGOut[0,2,3,5,7]       ; Stuck at VCC due to stuck port data_in      ;
+; Execute:Execute0|O_DestValue[0]         ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[0]           ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[2]         ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[2]           ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[3]         ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[3]           ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[5]         ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[5]           ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[7]         ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[7]           ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[9]         ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[9]           ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[1]         ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[1]           ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[6]         ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[6]           ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[4]         ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[4]           ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[10]        ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[10]          ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[8]         ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[8]           ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[11]        ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[11]          ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[14]        ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[14]          ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[13]        ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[13]          ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[12]        ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[12]          ; Lost fanout                                 ;
+; Execute:Execute0|O_DestValue[15]        ; Lost fanout                                 ;
+; Decode:Decode0|O_DestValue[15]          ; Lost fanout                                 ;
+; Memory:Memory0|O_BranchPC[0,1]          ; Lost fanout                                 ;
+; Memory:Memory0|LedROut[8]               ; Stuck at VCC due to stuck port data_in      ;
+; Memory:Memory0|LedGOut[1,4,6]           ; Stuck at VCC due to stuck port data_in      ;
+; Memory:Memory0|HexOut[2]                ; Stuck at VCC due to stuck port data_in      ;
+; Memory:Memory0|HexOut[1]                ; Stuck at GND due to stuck port data_in      ;
+; Memory:Memory0|HexOut[0,3]              ; Stuck at VCC due to stuck port data_in      ;
+; Memory:Memory0|HexOut[6]                ; Stuck at GND due to stuck port data_in      ;
+; Memory:Memory0|HexOut[5]                ; Stuck at VCC due to stuck port data_in      ;
+; Memory:Memory0|HexOut[4]                ; Stuck at GND due to stuck port data_in      ;
+; Memory:Memory0|HexOut[7,9,10]           ; Stuck at VCC due to stuck port data_in      ;
+; Memory:Memory0|HexOut[8]                ; Stuck at GND due to stuck port data_in      ;
+; Memory:Memory0|HexOut[11,14]            ; Stuck at VCC due to stuck port data_in      ;
+; Memory:Memory0|HexOut[13]               ; Stuck at GND due to stuck port data_in      ;
+; Memory:Memory0|HexOut[12,15]            ; Stuck at VCC due to stuck port data_in      ;
+; Fetch:Fetch0|PC[0,1]                    ; Stuck at GND due to stuck port data_in      ;
+; Fetch:Fetch0|O_PC[0,1]                  ; Stuck at GND due to stuck port data_in      ;
+; Decode:Decode0|O_PC[0,1]                ; Stuck at GND due to stuck port data_in      ;
+; Execute:Execute0|O_LOCK                 ; Lost fanout                                 ;
+; clk                                     ; Lost fanout                                 ;
+; Decode:Decode0|O_LOCK                   ; Lost fanout                                 ;
+; Decode:Decode0|O_DepStall               ; Lost fanout                                 ;
+; counter[0..31]                          ; Lost fanout                                 ;
+; Fetch:Fetch0|O_IR[25]                   ; Lost fanout                                 ;
+; Fetch:Fetch0|O_LOCK                     ; Lost fanout                                 ;
+; Fetch:Fetch0|O_IR[28]                   ; Lost fanout                                 ;
+; Decode:Decode0|RF_VALID[0,1]            ; Lost fanout                                 ;
+; Fetch:Fetch0|O_IR[16]                   ; Lost fanout                                 ;
+; Decode:Decode0|RF_VALID[2]              ; Lost fanout                                 ;
+; Fetch:Fetch0|O_IR[21]                   ; Lost fanout                                 ;
+; Decode:Decode0|RF_VALID[3]              ; Lost fanout                                 ;
+; Memory:Memory0|O_DestRegIdx[0]          ; Lost fanout                                 ;
+; Memory:Memory0|O_Opcode[0,3,4]          ; Lost fanout                                 ;
+; Memory:Memory0|O_DepStall               ; Lost fanout                                 ;
+; Memory:Memory0|O_LOCK                   ; Lost fanout                                 ;
+; Memory:Memory0|O_DestRegIdx[1]          ; Lost fanout                                 ;
+; Fetch:Fetch0|O_IR[24]                   ; Lost fanout                                 ;
+; Memory:Memory0|O_ALUOut[0]              ; Lost fanout                                 ;
+; Fetch:Fetch0|PC[2..11]                  ; Lost fanout                                 ;
+; Execute:Execute0|O_DestRegIdx[0]        ; Lost fanout                                 ;
+; Execute:Execute0|O_DepStall             ; Lost fanout                                 ;
+; Execute:Execute0|O_Opcode[0,1,4]        ; Lost fanout                                 ;
+; Execute:Execute0|O_DestRegIdx[1]        ; Lost fanout                                 ;
+; Memory:Memory0|O_ALUOut[1..15]          ; Lost fanout                                 ;
+; Execute:Execute0|O_ALUOut[0]            ; Lost fanout                                 ;
+; Decode:Decode0|O_DestRegIdx[0]          ; Lost fanout                                 ;
+; Decode:Decode0|O_Opcode[0,1,4]          ; Lost fanout                                 ;
+; Decode:Decode0|O_DestRegIdx[1]          ; Lost fanout                                 ;
+; Execute:Execute0|O_ALUOut[1..15]        ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[0]           ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[0]           ; Lost fanout                                 ;
+; Decode:Decode0|O_Imm[0]                 ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[1]           ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[1]           ; Lost fanout                                 ;
+; Decode:Decode0|O_Imm[1]                 ; Lost fanout                                 ;
+; Decode:Decode0|O_PC[2]                  ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[2]           ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[2,3]         ; Lost fanout                                 ;
+; Decode:Decode0|O_Imm[3]                 ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[3]           ; Lost fanout                                 ;
+; Decode:Decode0|O_PC[3,4]                ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[4]           ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[4]           ; Lost fanout                                 ;
+; Decode:Decode0|O_PC[5]                  ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[5]           ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[5]           ; Lost fanout                                 ;
+; Decode:Decode0|O_PC[6]                  ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[6]           ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[6]           ; Lost fanout                                 ;
+; Decode:Decode0|O_PC[7]                  ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[7]           ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[7]           ; Lost fanout                                 ;
+; Decode:Decode0|O_PC[8]                  ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[8]           ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[8]           ; Lost fanout                                 ;
+; Decode:Decode0|O_PC[9]                  ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[9]           ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[9]           ; Lost fanout                                 ;
+; Decode:Decode0|O_PC[10]                 ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[10]          ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[10]          ; Lost fanout                                 ;
+; Decode:Decode0|O_PC[11]                 ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[11]          ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[11]          ; Lost fanout                                 ;
+; Decode:Decode0|O_PC[12..14]             ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[14]          ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[13,14]       ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[13]          ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[12]          ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[12]          ; Lost fanout                                 ;
+; Decode:Decode0|O_PC[15]                 ; Lost fanout                                 ;
+; Decode:Decode0|O_Src2Value[15]          ; Lost fanout                                 ;
+; Decode:Decode0|O_Src1Value[15]          ; Lost fanout                                 ;
+; Fetch:Fetch0|O_IR[0,1]                  ; Lost fanout                                 ;
+; Fetch:Fetch0|O_PC[2]                    ; Lost fanout                                 ;
+; Fetch:Fetch0|O_IR[3]                    ; Lost fanout                                 ;
+; Fetch:Fetch0|O_PC[3..15]                ; Lost fanout                                 ;
+; Fetch:Fetch0|PC[12..15]                 ; Lost fanout                                 ;
+; Total Number of Removed Registers = 372 ;                                             ;
++-----------------------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                        ;
++--------------------------------------+--------------------------------+--------------------------------------------------------------------------------------------+
+; Register name                        ; Reason for Removal             ; Registers Removed due to This Register                                                     ;
++--------------------------------------+--------------------------------+--------------------------------------------------------------------------------------------+
+; Fetch:Fetch0|O_IR[23]                ; Stuck at GND                   ; Decode:Decode0|O_DestRegIdx[3], Execute:Execute0|O_DestRegIdx[3],                          ;
+;                                      ; due to stuck port data_in      ; Memory:Memory0|O_DestRegIdx[3], Decode:Decode0|counter[2], Execute:Execute0|O_LOCK,        ;
+;                                      ;                                ; clk, Decode:Decode0|O_LOCK, Decode:Decode0|O_DepStall, counter[0], counter[1], counter[2], ;
+;                                      ;                                ; counter[3], counter[4], counter[5], counter[6], counter[7], counter[8], counter[9],        ;
+;                                      ;                                ; counter[10], counter[11], counter[12], counter[13], counter[14], counter[15], counter[16], ;
+;                                      ;                                ; counter[17], counter[18], counter[19], counter[20], counter[21], counter[22], counter[23], ;
+;                                      ;                                ; counter[24], counter[25], counter[26], counter[27], counter[28], counter[29], counter[30], ;
+;                                      ;                                ; counter[31], Fetch:Fetch0|O_IR[25], Fetch:Fetch0|O_LOCK, Fetch:Fetch0|O_IR[28],            ;
+;                                      ;                                ; Decode:Decode0|RF_VALID[0], Decode:Decode0|RF_VALID[1], Fetch:Fetch0|O_IR[21],             ;
+;                                      ;                                ; Memory:Memory0|O_Opcode[3], Memory:Memory0|O_Opcode[4], Memory:Memory0|O_DepStall,         ;
+;                                      ;                                ; Fetch:Fetch0|O_IR[24], Fetch:Fetch0|PC[3], Fetch:Fetch0|PC[4], Fetch:Fetch0|PC[5],         ;
+;                                      ;                                ; Fetch:Fetch0|PC[6], Fetch:Fetch0|PC[7], Fetch:Fetch0|PC[8], Fetch:Fetch0|PC[9],            ;
+;                                      ;                                ; Fetch:Fetch0|PC[10], Fetch:Fetch0|PC[11], Execute:Execute0|O_DepStall                      ;
+; Memory:Memory0|O_MemOut[15]          ; Stuck at GND                   ; Execute:Execute0|O_DestValue[0], Decode:Decode0|O_DestValue[0],                            ;
+;                                      ; due to stuck port clock_enable ; Execute:Execute0|O_DestValue[2], Decode:Decode0|O_DestValue[2],                            ;
+;                                      ;                                ; Execute:Execute0|O_DestValue[3], Decode:Decode0|O_DestValue[3],                            ;
+;                                      ;                                ; Execute:Execute0|O_DestValue[5], Decode:Decode0|O_DestValue[5],                            ;
+;                                      ;                                ; Execute:Execute0|O_DestValue[7], Decode:Decode0|O_DestValue[7],                            ;
+;                                      ;                                ; Execute:Execute0|O_DestValue[1], Decode:Decode0|O_DestValue[1],                            ;
+;                                      ;                                ; Execute:Execute0|O_DestValue[6], Decode:Decode0|O_DestValue[6],                            ;
+;                                      ;                                ; Execute:Execute0|O_DestValue[4], Decode:Decode0|O_DestValue[4],                            ;
+;                                      ;                                ; Execute:Execute0|O_DestValue[8], Decode:Decode0|O_DestValue[8],                            ;
+;                                      ;                                ; Memory:Memory0|O_ALUOut[11], Memory:Memory0|O_ALUOut[14],                                  ;
+;                                      ;                                ; Memory:Memory0|O_ALUOut[15]                                                                ;
+; Fetch:Fetch0|O_IR[13]                ; Stuck at GND                   ; Decode:Decode0|O_Imm[13], Decode:Decode0|O_PC[8], Decode:Decode0|O_PC[9],                  ;
+;                                      ; due to stuck port data_in      ; Decode:Decode0|O_PC[10], Decode:Decode0|O_PC[11], Decode:Decode0|O_PC[14],                 ;
+;                                      ;                                ; Decode:Decode0|O_PC[13], Decode:Decode0|O_PC[12], Decode:Decode0|O_PC[15],                 ;
+;                                      ;                                ; Fetch:Fetch0|O_PC[8], Fetch:Fetch0|O_PC[9], Fetch:Fetch0|O_PC[10],                         ;
+;                                      ;                                ; Fetch:Fetch0|O_PC[11], Fetch:Fetch0|O_PC[14], Fetch:Fetch0|O_PC[13],                       ;
+;                                      ;                                ; Fetch:Fetch0|O_PC[12], Fetch:Fetch0|O_PC[15], Fetch:Fetch0|PC[14], Fetch:Fetch0|PC[13],    ;
+;                                      ;                                ; Fetch:Fetch0|PC[12], Fetch:Fetch0|PC[15]                                                   ;
+; Fetch:Fetch0|O_IR[15]                ; Stuck at GND                   ; Decode:Decode0|O_Imm[15], Decode:Decode0|O_Opcode[0], Decode:Decode0|O_Opcode[1],          ;
+;                                      ; due to stuck port data_in      ; Decode:Decode0|O_Opcode[4], Decode:Decode0|O_Src1Value[8],                                 ;
+;                                      ;                                ; Decode:Decode0|O_Src1Value[9], Decode:Decode0|O_Src1Value[10],                             ;
+;                                      ;                                ; Decode:Decode0|O_Src1Value[11], Decode:Decode0|O_Src1Value[14],                            ;
+;                                      ;                                ; Decode:Decode0|O_Src1Value[13], Decode:Decode0|O_Src1Value[12],                            ;
+;                                      ;                                ; Decode:Decode0|O_Src1Value[15]                                                             ;
+; Fetch:Fetch0|branchwait              ; Stuck at GND                   ; Fetch:Fetch0|O_FetchStall, Decode:Decode0|O_FetchStall,                                    ;
+;                                      ; due to stuck port data_in      ; Execute:Execute0|O_FetchStall, Memory:Memory0|O_FetchStall, Fetch:Fetch0|O_PC[0],          ;
+;                                      ;                                ; Fetch:Fetch0|O_PC[1], Decode:Decode0|O_PC[0], Decode:Decode0|O_PC[1],                      ;
+;                                      ;                                ; Memory:Memory0|O_DestRegIdx[0], Memory:Memory0|O_LOCK,                                     ;
+;                                      ;                                ; Execute:Execute0|O_DestRegIdx[0], Decode:Decode0|O_DestRegIdx[0]                           ;
+; Fetch:Fetch0|O_IR[22]                ; Stuck at GND                   ; Decode:Decode0|O_DestRegIdx[2], Execute:Execute0|O_DestRegIdx[2],                          ;
+;                                      ; due to stuck port data_in      ; Memory:Memory0|O_DestRegIdx[2], Memory:Memory0|O_DestRegIdx[1],                            ;
+;                                      ;                                ; Memory:Memory0|O_ALUOut[0], Fetch:Fetch0|PC[2], Execute:Execute0|O_DestRegIdx[1],          ;
+;                                      ;                                ; Decode:Decode0|O_DestRegIdx[1], Fetch:Fetch0|O_PC[2]                                       ;
+; Fetch:Fetch0|O_IR[11]                ; Stuck at GND                   ; Decode:Decode0|RF_VALID[4], Decode:Decode0|O_Imm[11], Decode:Decode0|counter[3],           ;
+;                                      ; due to stuck port data_in      ; Decode:Decode0|counter[0], Decode:Decode0|counter[1], Fetch:Fetch0|O_IR[16],               ;
+;                                      ;                                ; Decode:Decode0|RF_VALID[2], Decode:Decode0|RF_VALID[3], Memory:Memory0|O_Opcode[0]         ;
+; Memory:Memory0|O_BranchAddrSelect[0] ; Stuck at GND                   ; Memory:Memory0|O_BranchPC[2], Memory:Memory0|O_BranchAddrSelect[1],                        ;
+;                                      ; due to stuck port data_in      ; Execute:Execute0|O_Opcode[0], Execute:Execute0|O_Opcode[1],                                ;
+;                                      ;                                ; Execute:Execute0|O_Opcode[4], Execute:Execute0|O_ALUOut[2], Decode:Decode0|O_PC[2],        ;
+;                                      ;                                ; Decode:Decode0|O_Src2Value[2]                                                              ;
+; Memory:Memory0|O_BranchPC[4]         ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[4], Decode:Decode0|O_PC[4], Decode:Decode0|O_PC[3],              ;
+;                                      ;                                ; Decode:Decode0|O_Src2Value[4], Fetch:Fetch0|O_PC[4], Fetch:Fetch0|O_PC[3]                  ;
+; Memory:Memory0|O_BranchPC[1]         ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[1], Decode:Decode0|O_Src1Value[1],                               ;
+;                                      ;                                ; Decode:Decode0|O_Src2Value[1], Decode:Decode0|O_Imm[1], Fetch:Fetch0|O_IR[1]               ;
+; Memory:Memory0|O_BranchPC[3]         ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[3], Decode:Decode0|O_Src1Value[3], Decode:Decode0|O_Imm[3],      ;
+;                                      ;                                ; Decode:Decode0|O_Src2Value[3], Fetch:Fetch0|O_IR[3]                                        ;
+; Memory:Memory0|O_BranchPC[0]         ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[0], Decode:Decode0|O_Src2Value[0],                               ;
+;                                      ;                                ; Decode:Decode0|O_Src1Value[0], Decode:Decode0|O_Imm[0], Fetch:Fetch0|O_IR[0]               ;
+; Memory:Memory0|O_BranchPC[7]         ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[7], Decode:Decode0|O_PC[7], Decode:Decode0|O_Src2Value[7],       ;
+;                                      ;                                ; Fetch:Fetch0|O_PC[7]                                                                       ;
+; Memory:Memory0|O_MemOut[4]           ; Stuck at GND                   ; Memory:Memory0|O_ALUOut[3], Memory:Memory0|O_ALUOut[4], Memory:Memory0|O_ALUOut[5],        ;
+;                                      ; due to stuck port clock_enable ; Memory:Memory0|O_ALUOut[6]                                                                 ;
+; Memory:Memory0|O_MemOut[10]          ; Stuck at GND                   ; Memory:Memory0|O_ALUOut[7], Memory:Memory0|O_ALUOut[8], Memory:Memory0|O_ALUOut[9],        ;
+;                                      ; due to stuck port clock_enable ; Memory:Memory0|O_ALUOut[10]                                                                ;
+; Memory:Memory0|O_BranchPC[6]         ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[6], Decode:Decode0|O_PC[6], Decode:Decode0|O_Src2Value[6],       ;
+;                                      ;                                ; Fetch:Fetch0|O_PC[6]                                                                       ;
+; Memory:Memory0|O_BranchPC[5]         ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[5], Decode:Decode0|O_PC[5], Decode:Decode0|O_Src2Value[5],       ;
+;                                      ;                                ; Fetch:Fetch0|O_PC[5]                                                                       ;
+; Decode:Decode0|ConditionalCode~10    ; Lost Fanouts                   ; Decode:Decode0|ConditionalCode.001, Decode:Decode0|ConditionalCode.011,                    ;
+;                                      ;                                ; Decode:Decode0|ConditionalCode.101, Decode:Decode0|ConditionalCode.111                     ;
+; Memory:Memory0|O_BranchPC[8]         ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[8], Decode:Decode0|O_Src2Value[8]                                ;
+; Memory:Memory0|O_BranchPC[10]        ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[10], Decode:Decode0|O_Src2Value[10]                              ;
+; Memory:Memory0|O_BranchPC[9]         ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[9], Decode:Decode0|O_Src2Value[9]                                ;
+; Fetch:Fetch0|O_IR[7]                 ; Stuck at GND                   ; Decode:Decode0|O_Imm[7], Decode:Decode0|O_Src1Value[7]                                     ;
+;                                      ; due to stuck port data_in      ;                                                                                            ;
+; Fetch:Fetch0|O_IR[6]                 ; Stuck at GND                   ; Decode:Decode0|O_Imm[6], Decode:Decode0|O_Src1Value[6]                                     ;
+;                                      ; due to stuck port data_in      ;                                                                                            ;
+; Fetch:Fetch0|O_IR[5]                 ; Stuck at GND                   ; Decode:Decode0|O_Imm[5], Decode:Decode0|O_Src1Value[5]                                     ;
+;                                      ; due to stuck port data_in      ;                                                                                            ;
+; Fetch:Fetch0|O_IR[4]                 ; Stuck at GND                   ; Decode:Decode0|O_Imm[4], Decode:Decode0|O_Src1Value[4]                                     ;
+;                                      ; due to stuck port data_in      ;                                                                                            ;
+; Fetch:Fetch0|O_IR[2]                 ; Stuck at GND                   ; Decode:Decode0|O_Imm[2], Decode:Decode0|O_Src1Value[2]                                     ;
+;                                      ; due to stuck port data_in      ;                                                                                            ;
+; Memory:Memory0|O_MemOut[11]          ; Stuck at GND                   ; Memory:Memory0|O_ALUOut[13], Memory:Memory0|O_ALUOut[12]                                   ;
+;                                      ; due to stuck port clock_enable ;                                                                                            ;
+; Memory:Memory0|O_BranchPC[14]        ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[14], Decode:Decode0|O_Src2Value[14]                              ;
+; Memory:Memory0|O_BranchPC[12]        ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[12], Decode:Decode0|O_Src2Value[12]                              ;
+; Memory:Memory0|O_BranchPC[15]        ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[15], Decode:Decode0|O_Src2Value[15]                              ;
+; Decode:Decode0|ConditionalCode~11    ; Lost Fanouts                   ; Decode:Decode0|ConditionalCode.010, Decode:Decode0|ConditionalCode.110                     ;
+; Memory:Memory0|O_BranchPC[13]        ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[13], Decode:Decode0|O_Src2Value[13]                              ;
+; Memory:Memory0|O_BranchPC[11]        ; Lost Fanouts                   ; Execute:Execute0|O_ALUOut[11], Decode:Decode0|O_Src2Value[11]                              ;
+; Fetch:Fetch0|O_IR[8]                 ; Stuck at GND                   ; Decode:Decode0|O_Imm[8]                                                                    ;
+;                                      ; due to stuck port data_in      ;                                                                                            ;
+; Fetch:Fetch0|O_IR[14]                ; Stuck at GND                   ; Decode:Decode0|O_Imm[14]                                                                   ;
+;                                      ; due to stuck port data_in      ;                                                                                            ;
+; Fetch:Fetch0|O_IR[12]                ; Stuck at GND                   ; Decode:Decode0|O_Imm[12]                                                                   ;
+;                                      ; due to stuck port data_in      ;                                                                                            ;
+; Memory:Memory0|O_MemOut[1]           ; Stuck at GND                   ; Memory:Memory0|O_ALUOut[1]                                                                 ;
+;                                      ; due to stuck port clock_enable ;                                                                                            ;
+; Memory:Memory0|O_MemOut[0]           ; Stuck at GND                   ; Memory:Memory0|O_ALUOut[2]                                                                 ;
+;                                      ; due to stuck port clock_enable ;                                                                                            ;
+; Decode:Decode0|ConditionalCode~12    ; Lost Fanouts                   ; Decode:Decode0|ConditionalCode.100                                                         ;
+; Execute:Execute0|O_DestValue[9]      ; Lost Fanouts                   ; Decode:Decode0|O_DestValue[9]                                                              ;
+; Execute:Execute0|O_DestValue[10]     ; Lost Fanouts                   ; Decode:Decode0|O_DestValue[10]                                                             ;
+; Fetch:Fetch0|O_IR[10]                ; Stuck at GND                   ; Decode:Decode0|O_Imm[10]                                                                   ;
+;                                      ; due to stuck port data_in      ;                                                                                            ;
+; Execute:Execute0|O_DestValue[14]     ; Lost Fanouts                   ; Decode:Decode0|O_DestValue[14]                                                             ;
+; Execute:Execute0|O_DestValue[13]     ; Lost Fanouts                   ; Decode:Decode0|O_DestValue[13]                                                             ;
+; Execute:Execute0|O_DestValue[12]     ; Lost Fanouts                   ; Decode:Decode0|O_DestValue[12]                                                             ;
+; Execute:Execute0|O_DestValue[15]     ; Lost Fanouts                   ; Decode:Decode0|O_DestValue[15]                                                             ;
+; Fetch:Fetch0|O_IR[9]                 ; Stuck at GND                   ; Decode:Decode0|O_Imm[9]                                                                    ;
+;                                      ; due to stuck port data_in      ;                                                                                            ;
+; Execute:Execute0|O_DestValue[11]     ; Lost Fanouts                   ; Decode:Decode0|O_DestValue[11]                                                             ;
++--------------------------------------+--------------------------------+--------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                     ;
++---------------------------------+-------------------------+------+
+; Register Name                   ; Megafunction            ; Type ;
++---------------------------------+-------------------------+------+
+; Decode:Decode0|RF[0..15][0..15] ; Decode:Decode0|RF_rtl_2 ; RAM  ;
++---------------------------------+-------------------------+------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |lg_highlevel|counter[0]                                ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |lg_highlevel|Execute:Execute0|O_DestValue[2]           ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |lg_highlevel|Fetch:Fetch0|PC[0]                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |lg_highlevel|Decode:Decode0|counter[2]                 ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |lg_highlevel|Memory:Memory0|HexOut[6]                  ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |lg_highlevel|Memory:Memory0|LedROut[1]                 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |lg_highlevel|Fetch:Fetch0|O_IR[0]                      ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |lg_highlevel|Memory:Memory0|LedGOut[7]                 ;
+; 7:1                ; 29 bits   ; 116 LEs       ; 58 LEs               ; 58 LEs                 ; Yes        ; |lg_highlevel|Fetch:Fetch0|O_PC[14]                     ;
+; 256:1              ; 16 bits   ; 2720 LEs      ; 0 LEs                ; 2720 LEs               ; Yes        ; |lg_highlevel|Memory:Memory0|O_BranchPC[13]             ;
+; 256:1              ; 13 bits   ; 2210 LEs      ; 65 LEs               ; 2145 LEs               ; Yes        ; |lg_highlevel|Execute:Execute0|O_ALUOut[12]             ;
+; 256:1              ; 2 bits    ; 340 LEs       ; 10 LEs               ; 330 LEs                ; Yes        ; |lg_highlevel|Execute:Execute0|O_ALUOut[0]              ;
+; 256:1              ; 2 bits    ; 340 LEs       ; 0 LEs                ; 340 LEs                ; Yes        ; |lg_highlevel|Decode:Decode0|O_DestRegIdx[3]            ;
+; 256:1              ; 13 bits   ; 2210 LEs      ; 13 LEs               ; 2197 LEs               ; Yes        ; |lg_highlevel|Decode:Decode0|O_DestValue[5]             ;
+; 256:1              ; 3 bits    ; 510 LEs       ; 3 LEs                ; 507 LEs                ; Yes        ; |lg_highlevel|Decode:Decode0|O_DestValue[2]             ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |lg_highlevel|Fetch:Fetch0|O_IR[29]                     ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |lg_highlevel|Fetch:Fetch0|O_IR[28]                     ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |lg_highlevel|Fetch:Fetch0|InstMem.raddr_a[2]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |lg_highlevel|Decode:Decode0|ConditionalCode            ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; No         ; |lg_highlevel|Fetch:Fetch0|O_IR                         ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |lg_highlevel|Writeback:Writeback0|O_WriteBackRegIdx[0] ;
+; 131:1              ; 16 bits   ; 1392 LEs      ; 48 LEs               ; 1344 LEs               ; No         ; |lg_highlevel|Writeback:Writeback0|O_WriteBackData[11]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Source assignments for Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------+
+; Assignment                      ; Value              ; From ; To                         ;
++---------------------------------+--------------------+------+----------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                          ;
++---------------------------------+--------------------+------+----------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Source assignments for Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------+
+; Assignment                      ; Value              ; From ; To                         ;
++---------------------------------+--------------------+------+----------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                          ;
++---------------------------------+--------------------+------+----------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Source assignments for Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------+
+; Assignment                      ; Value              ; From ; To                         ;
++---------------------------------+--------------------+------+----------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                          ;
++---------------------------------+--------------------+------+----------------------------+
 
 
 +-------------------------------------------------------------------------------+
@@ -458,6 +1027,189 @@ applicable agreement for further details.
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Decode:Decode0|altsyncram:RF_rtl_0 ;
++------------------------------------+----------------------+-------------------------+
+; Parameter Name                     ; Value                ; Type                    ;
++------------------------------------+----------------------+-------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                 ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY            ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE          ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                 ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                 ;
+; WIDTH_A                            ; 16                   ; Untyped                 ;
+; WIDTHAD_A                          ; 4                    ; Untyped                 ;
+; NUMWORDS_A                         ; 16                   ; Untyped                 ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                 ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                 ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                 ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                 ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                 ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                 ;
+; WIDTH_B                            ; 16                   ; Untyped                 ;
+; WIDTHAD_B                          ; 4                    ; Untyped                 ;
+; NUMWORDS_B                         ; 16                   ; Untyped                 ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                 ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                 ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                 ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                 ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                 ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                 ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                 ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                 ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                 ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                 ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                 ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                 ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                 ;
+; BYTE_SIZE                          ; 8                    ; Untyped                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
+; INIT_FILE                          ; UNUSED               ; Untyped                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                 ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                 ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                 ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                 ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                 ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                 ;
+; CBXI_PARAMETER                     ; altsyncram_8rc1      ; Untyped                 ;
++------------------------------------+----------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Decode:Decode0|altsyncram:RF_rtl_1 ;
++------------------------------------+----------------------+-------------------------+
+; Parameter Name                     ; Value                ; Type                    ;
++------------------------------------+----------------------+-------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                 ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY            ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE          ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                 ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                 ;
+; WIDTH_A                            ; 16                   ; Untyped                 ;
+; WIDTHAD_A                          ; 4                    ; Untyped                 ;
+; NUMWORDS_A                         ; 16                   ; Untyped                 ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                 ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                 ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                 ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                 ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                 ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                 ;
+; WIDTH_B                            ; 16                   ; Untyped                 ;
+; WIDTHAD_B                          ; 4                    ; Untyped                 ;
+; NUMWORDS_B                         ; 16                   ; Untyped                 ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                 ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                 ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                 ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                 ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                 ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                 ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                 ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                 ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                 ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                 ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                 ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                 ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                 ;
+; BYTE_SIZE                          ; 8                    ; Untyped                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
+; INIT_FILE                          ; UNUSED               ; Untyped                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                 ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                 ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                 ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                 ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                 ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                 ;
+; CBXI_PARAMETER                     ; altsyncram_8rc1      ; Untyped                 ;
++------------------------------------+----------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Decode:Decode0|altsyncram:RF_rtl_2 ;
++------------------------------------+----------------------+-------------------------+
+; Parameter Name                     ; Value                ; Type                    ;
++------------------------------------+----------------------+-------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                 ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY            ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE          ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                 ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                 ;
+; WIDTH_A                            ; 16                   ; Untyped                 ;
+; WIDTHAD_A                          ; 4                    ; Untyped                 ;
+; NUMWORDS_A                         ; 16                   ; Untyped                 ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                 ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                 ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                 ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                 ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                 ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                 ;
+; WIDTH_B                            ; 16                   ; Untyped                 ;
+; WIDTHAD_B                          ; 4                    ; Untyped                 ;
+; NUMWORDS_B                         ; 16                   ; Untyped                 ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                 ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                 ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                 ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                 ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                 ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                 ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                 ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                 ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                 ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                 ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                 ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                 ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                 ;
+; BYTE_SIZE                          ; 8                    ; Untyped                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
+; INIT_FILE                          ; UNUSED               ; Untyped                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                 ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                 ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                 ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                 ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                 ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                 ;
+; CBXI_PARAMETER                     ; altsyncram_8rc1      ; Untyped                 ;
++------------------------------------+----------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------+
 ; altpll Parameter Settings by Entity Instance                     ;
 +-------------------------------+----------------------------------+
@@ -475,89 +1227,46 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+----------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                      ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
-; Option                                                                     ; Setting            ; Default Value      ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP2C20F484C7       ;                    ;
-; Top-level entity name                                                      ; lg_highlevel       ; lg_highlevel       ;
-; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
-; Use smart compilation                                                      ; Off                ; Off                ;
-; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
-; Enable compact report table                                                ; Off                ; Off                ;
-; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
-; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
-; Preserve fewer node names                                                  ; On                 ; On                 ;
-; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
-; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
-; State Machine Processing                                                   ; Auto               ; Auto               ;
-; Safe State Machine                                                         ; Off                ; Off                ;
-; Extract Verilog State Machines                                             ; On                 ; On                 ;
-; Extract VHDL State Machines                                                ; On                 ; On                 ;
-; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
-; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
-; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
-; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
-; Parallel Synthesis                                                         ; On                 ; On                 ;
-; DSP Block Balancing                                                        ; Auto               ; Auto               ;
-; NOT Gate Push-Back                                                         ; On                 ; On                 ;
-; Power-Up Don't Care                                                        ; On                 ; On                 ;
-; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
-; Remove Duplicate Registers                                                 ; On                 ; On                 ;
-; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
-; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
-; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
-; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
-; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
-; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
-; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
-; Optimization Technique                                                     ; Balanced           ; Balanced           ;
-; Carry Chain Length                                                         ; 70                 ; 70                 ;
-; Auto Carry Chains                                                          ; On                 ; On                 ;
-; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
-; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
-; Auto ROM Replacement                                                       ; On                 ; On                 ;
-; Auto RAM Replacement                                                       ; On                 ; On                 ;
-; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
-; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
-; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
-; Strict RAM Replacement                                                     ; Off                ; Off                ;
-; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
-; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
-; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
-; Auto Resource Sharing                                                      ; Off                ; Off                ;
-; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
-; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
-; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
-; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
-; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
-; Report Parameter Settings                                                  ; On                 ; On                 ;
-; Report Source Assignments                                                  ; On                 ; On                 ;
-; Report Connectivity Checks                                                 ; On                 ; On                 ;
-; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
-; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
-; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
-; HDL message level                                                          ; Level2             ; Level2             ;
-; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
-; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
-; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
-; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
-; Clock MUX Protection                                                       ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
-; Block Design Naming                                                        ; Auto               ; Auto               ;
-; SDC constraint protection                                                  ; Off                ; Off                ;
-; Synthesis Effort                                                           ; Auto               ; Auto               ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
-; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
-; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
-; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
-; Synthesis Seed                                                             ; 1                  ; 1                  ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
++--------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                               ;
++-------------------------------------------+------------------------------------+
+; Name                                      ; Value                              ;
++-------------------------------------------+------------------------------------+
+; Number of entity instances                ; 3                                  ;
+; Entity Instance                           ; Decode:Decode0|altsyncram:RF_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                          ;
+;     -- WIDTH_A                            ; 16                                 ;
+;     -- NUMWORDS_A                         ; 16                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                       ;
+;     -- WIDTH_B                            ; 16                                 ;
+;     -- NUMWORDS_B                         ; 16                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                          ;
+; Entity Instance                           ; Decode:Decode0|altsyncram:RF_rtl_1 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                          ;
+;     -- WIDTH_A                            ; 16                                 ;
+;     -- NUMWORDS_A                         ; 16                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                       ;
+;     -- WIDTH_B                            ; 16                                 ;
+;     -- NUMWORDS_B                         ; 16                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                          ;
+; Entity Instance                           ; Decode:Decode0|altsyncram:RF_rtl_2 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                          ;
+;     -- WIDTH_A                            ; 16                                 ;
+;     -- NUMWORDS_A                         ; 16                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                       ;
+;     -- WIDTH_B                            ; 16                                 ;
+;     -- NUMWORDS_B                         ; 16                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                          ;
++-------------------------------------------+------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -578,14 +1287,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:07     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 32-bit Analysis & Elaboration
+Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
-    Info: Processing started: Tue Apr 09 17:05:53 2013
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lg_highlevel -c lg_highlevel --analysis_and_elaboration
+    Info: Processing started: Tue Apr 09 17:17:19 2013
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lg_highlevel -c lg_highlevel
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file seven_segment.v
     Info (12023): Found entity 1: SevenSeg
@@ -682,11 +1400,225 @@ Warning (10230): Verilog HDL assignment warning at memory.v(253): truncated valu
 Info (12128): Elaborating entity "SevenSeg" for hierarchy "Memory:Memory0|SevenSeg:sseg0"
 Info (12128): Elaborating entity "Writeback" for hierarchy "Writeback:Writeback0"
 Warning (10230): Verilog HDL assignment warning at writeback.v(60): truncated value with size 32 to match size of target (4)
+Warning (276027): Inferred dual-clock RAM node "Decode:Decode0|RF_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Warning (276027): Inferred dual-clock RAM node "Decode:Decode0|RF_rtl_1" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Warning (276027): Inferred dual-clock RAM node "Decode:Decode0|RF_rtl_2" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276007): RAM logic "Memory:Memory0|DataMem" is uninferred due to asynchronous read logic
+    Info (276007): RAM logic "Fetch:Fetch0|InstMem" is uninferred due to asynchronous read logic
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/wamp/www/CS-3220-HW5/homework5_v3_restored/db/lg_highlevel.ram0_Fetch_4c7a7c9.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (19000): Inferred 3 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "Decode:Decode0|RF_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 4
+        Info (286033): Parameter NUMWORDS_A set to 16
+        Info (286033): Parameter WIDTH_B set to 16
+        Info (286033): Parameter WIDTHAD_B set to 4
+        Info (286033): Parameter NUMWORDS_B set to 16
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "Decode:Decode0|RF_rtl_1" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 4
+        Info (286033): Parameter NUMWORDS_A set to 16
+        Info (286033): Parameter WIDTH_B set to 16
+        Info (286033): Parameter WIDTHAD_B set to 4
+        Info (286033): Parameter NUMWORDS_B set to 16
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "Decode:Decode0|RF_rtl_2" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 4
+        Info (286033): Parameter NUMWORDS_A set to 16
+        Info (286033): Parameter WIDTH_B set to 16
+        Info (286033): Parameter WIDTHAD_B set to 4
+        Info (286033): Parameter NUMWORDS_B set to 16
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (12130): Elaborated megafunction instantiation "Decode:Decode0|altsyncram:RF_rtl_0"
+Info (12133): Instantiated megafunction "Decode:Decode0|altsyncram:RF_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "4"
+    Info (12134): Parameter "NUMWORDS_A" = "16"
+    Info (12134): Parameter "WIDTH_B" = "16"
+    Info (12134): Parameter "WIDTHAD_B" = "4"
+    Info (12134): Parameter "NUMWORDS_B" = "16"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8rc1.tdf
+    Info (12023): Found entity 1: altsyncram_8rc1
+Info (12130): Elaborated megafunction instantiation "Decode:Decode0|altsyncram:RF_rtl_1"
+Info (12133): Instantiated megafunction "Decode:Decode0|altsyncram:RF_rtl_1" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "4"
+    Info (12134): Parameter "NUMWORDS_A" = "16"
+    Info (12134): Parameter "WIDTH_B" = "16"
+    Info (12134): Parameter "WIDTHAD_B" = "4"
+    Info (12134): Parameter "NUMWORDS_B" = "16"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12130): Elaborated megafunction instantiation "Decode:Decode0|altsyncram:RF_rtl_2"
+Info (12133): Instantiated megafunction "Decode:Decode0|altsyncram:RF_rtl_2" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "4"
+    Info (12134): Parameter "NUMWORDS_A" = "16"
+    Info (12134): Parameter "WIDTH_B" = "16"
+    Info (12134): Parameter "WIDTHAD_B" = "4"
+    Info (12134): Parameter "NUMWORDS_B" = "16"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info: Quartus II 32-bit Analysis & Elaboration was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 353 megabytes
-    Info: Processing ended: Tue Apr 09 17:05:54 2013
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a15"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a15"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a14"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a14"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a13"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a13"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a12"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a12"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a11"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a11"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a10"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a10"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a9"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a9"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a8"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a8"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a7"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a7"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a6"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a6"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a5"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a5"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a4"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a4"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a1"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a1"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a2"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a2"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a3"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a3"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_2|altsyncram_8rc1:auto_generated|ram_block1a0"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_1|altsyncram_8rc1:auto_generated|ram_block1a0"
+    Warning (14285): Synthesized away the following PLL node(s):
+        Warning (14320): Synthesized away node "pll:pll0|altpll:altpll_component|_clk0"
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a0"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a15"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a14"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a13"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a12"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a11"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a10"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a9"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a8"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a7"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a6"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a5"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a2"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a3"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a4"
+        Warning (14320): Synthesized away node "Decode:Decode0|altsyncram:RF_rtl_0|altsyncram_8rc1:auto_generated|ram_block1a1"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at VCC
+    Warning (13410): Pin "LEDR[1]" is stuck at VCC
+    Warning (13410): Pin "LEDR[2]" is stuck at VCC
+    Warning (13410): Pin "LEDR[3]" is stuck at VCC
+    Warning (13410): Pin "LEDR[4]" is stuck at VCC
+    Warning (13410): Pin "LEDR[5]" is stuck at VCC
+    Warning (13410): Pin "LEDR[6]" is stuck at VCC
+    Warning (13410): Pin "LEDR[7]" is stuck at VCC
+    Warning (13410): Pin "LEDR[8]" is stuck at VCC
+    Warning (13410): Pin "LEDR[9]" is stuck at VCC
+    Warning (13410): Pin "LEDG[0]" is stuck at VCC
+    Warning (13410): Pin "LEDG[1]" is stuck at VCC
+    Warning (13410): Pin "LEDG[2]" is stuck at VCC
+    Warning (13410): Pin "LEDG[3]" is stuck at VCC
+    Warning (13410): Pin "LEDG[4]" is stuck at VCC
+    Warning (13410): Pin "LEDG[5]" is stuck at VCC
+    Warning (13410): Pin "LEDG[6]" is stuck at VCC
+    Warning (13410): Pin "LEDG[7]" is stuck at VCC
+    Warning (13410): Pin "HEX0[0]" is stuck at VCC
+    Warning (13410): Pin "HEX0[1]" is stuck at GND
+    Warning (13410): Pin "HEX0[2]" is stuck at GND
+    Warning (13410): Pin "HEX0[3]" is stuck at GND
+    Warning (13410): Pin "HEX0[4]" is stuck at GND
+    Warning (13410): Pin "HEX0[5]" is stuck at VCC
+    Warning (13410): Pin "HEX0[6]" is stuck at GND
+    Warning (13410): Pin "HEX1[0]" is stuck at GND
+    Warning (13410): Pin "HEX1[1]" is stuck at GND
+    Warning (13410): Pin "HEX1[2]" is stuck at GND
+    Warning (13410): Pin "HEX1[3]" is stuck at VCC
+    Warning (13410): Pin "HEX1[4]" is stuck at GND
+    Warning (13410): Pin "HEX1[5]" is stuck at GND
+    Warning (13410): Pin "HEX1[6]" is stuck at GND
+    Warning (13410): Pin "HEX2[0]" is stuck at GND
+    Warning (13410): Pin "HEX2[1]" is stuck at VCC
+    Warning (13410): Pin "HEX2[2]" is stuck at VCC
+    Warning (13410): Pin "HEX2[3]" is stuck at GND
+    Warning (13410): Pin "HEX2[4]" is stuck at GND
+    Warning (13410): Pin "HEX2[5]" is stuck at GND
+    Warning (13410): Pin "HEX2[6]" is stuck at GND
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC
+    Warning (13410): Pin "HEX3[1]" is stuck at GND
+    Warning (13410): Pin "HEX3[2]" is stuck at GND
+    Warning (13410): Pin "HEX3[3]" is stuck at GND
+    Warning (13410): Pin "HEX3[4]" is stuck at GND
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC
+    Warning (13410): Pin "HEX3[6]" is stuck at GND
+Info (17049): 252 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK_27[0]"
+    Warning (15610): No output dependent on input pin "CLOCK_27[1]"
+    Warning (15610): No output dependent on input pin "CLOCK_50"
+Info (21057): Implemented 49 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 46 output pins
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 121 warnings
+    Info: Peak virtual memory: 366 megabytes
+    Info: Processing ended: Tue Apr 09 17:17:30 2013
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:09
 
 

@@ -1,5 +1,8 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="lg_highlevel">
+		<CBX_INST_ENTRY INSTANCE_NAME="|lg_highlevel|Decode:Decode0|altsyncram:RF_rtl_0" CBX_FILE_NAME="altsyncram_8rc1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lg_highlevel|Decode:Decode0|altsyncram:RF_rtl_1" CBX_FILE_NAME="altsyncram_8rc1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lg_highlevel|Decode:Decode0|altsyncram:RF_rtl_2" CBX_FILE_NAME="altsyncram_8rc1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
